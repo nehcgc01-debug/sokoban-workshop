@@ -1,0 +1,18 @@
+Level 5 / 回身取箱 (V7)
+Shortest one-pull solution: rDLLURURRRDDLLLULD (18 moves); BFS visited 2547 states.
+Without pull: None; exhausted 253 states.
+Board: # wall, $ box, @ player, . goal
+#######
+##    #
+#$@.  #
+#   $ #
+#. #  #
+#######
+
+Puzzle intent: identify which box needs the only pull. The left box starts against the west wall, with its north side walled. Rescuing it rightward lets it be pushed onto the upper goal. The other box needs a loop around the north side and leftward pushing, then a final downward push into the southwest goal.
+
+Tempting wrong pulls available before any box push: RRu (pull second box upward) or RDl (pull second box leftward); both consume the one charge, and exhaustive zero-charge search from the resulting state finds no solution.
+
+Two good initial pull approaches exist: r or DLd. This is intentional flexibility, not a single-input trick. The shortest route is 18 steps, versus previous 8-step final.
+
+Implementation: demo_5.json and the hardcoded route in pull_tests.gd use this puzzle. No new mechanics or parser changes.

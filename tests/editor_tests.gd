@@ -1,0 +1,78 @@
+extends SceneTree
+var checks = 0
+func _initialize() -> void:
+	call_deferred("run_tests")
+func check(condition: bool, message: String) -> void:
+	checks += 1
+	if not condition:
+		push_error("FAIL: " + message)
+		quit(1)
+		assert(condition, message)
+	print("PASS ", message)
+func run_tests() -> void:
+	var state = root.get_node("GameState")
+	state.editor_snapshot = {}
+	var editor = load("res://level_editor.tscn").instantiate()
+	root.add_child(editor)
+	await process_frame
+	check(editor._serialize()["player"] == [-1,-1], "blank draft has no player")
+	editor._paint_cell(Vector2i(1,1), "player")
+	editor._paint_cell(Vector2i(2,1), "box")
+	editor._paint_cell(Vector2i(3,1), "goal")
+	check(editor.dirty, "painting marks dirty")
+	editor._paint_cell(Vector2i(1,1), "floor")
+	check(editor.player_cell == Vector2i(-1,-1), "eraser clears player")
+	editor._paint_cell(Vector2i(1,1), "player")
+	editor._open_slots("save")
+	check(editor.slot_confirm.disabled, "save requires explicit slot")
+	editor._choose_slot(3)
+	editor._confirm_slot()
+	check(FileAccess.file_exists("user://custom_level_3.json"), "empty slot saved")
+	check(not editor.dirty, "successful save clears dirty")
+	var before = FileAccess.get_file_as_string("user://custom_level_3.json")
+	editor._paint_cell(Vector2i(0,0), "wall")
+	editor._open_slots("save")
+	editor._choose_slot(3)
+	editor._confirm_slot()
+	check(editor.overwrite_dialog.visible, "existing slot requires overwrite confirmation")
+	check(before == FileAccess.get_file_as_string("user://custom_level_3.json"), "opening overwrite leaves file unchanged")
+	editor.overwrite_dialog.hide()
+	editor._return_to_picker()
+	await process_frame
+	check(editor.dirty and editor.slot_popup.visible, "overwrite cancel preserves dirty draft and picker")
+	editor.slot_popup.hide()
+	editor._open_slots("load")
+	editor._choose_slot(3)
+	editor._confirm_slot()
+	check(editor.discard_dialog.visible, "loading over dirty draft asks confirmation")
+	editor.discard_dialog.hide()
+	editor._discard_canceled()
+	await process_frame
+	check(editor.walls.has(Vector2i(0,0)), "cancel loading keeps draft")
+	editor.slot_popup.hide()
+	editor._open_slots("load")
+	editor._choose_slot(3)
+	editor._confirm_slot()
+	editor.discard_dialog.hide()
+	editor._discard_confirmed()
+	check(not editor.walls.has(Vector2i(0,0)) and not editor.dirty, "confirmed load restores saved draft")
+	editor._open_slots("original")
+	editor._choose_slot(1)
+	editor._confirm_slot()
+	check(editor.dirty and editor.save_slot == 0, "original map imports as unsaved copy")
+	editor._snapshot()
+	var saved = editor._serialize()
+	editor.queue_free()
+	await process_frame
+	editor = load("res://level_editor.tscn").instantiate()
+	root.add_child(editor)
+	await process_frame
+	check(saved == editor._serialize() and editor.dirty, "snapshot restores draft and dirty flag")
+	editor._request_back()
+	check(editor.discard_dialog.visible, "back protects unsaved draft")
+	editor.discard_dialog.hide()
+	editor._discard_canceled()
+	await process_frame
+	check(editor.dirty, "back cancellation retains changes")
+	print("EDITOR TESTS PASSED: ", checks)
+	quit(0)

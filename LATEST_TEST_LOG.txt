@@ -1,0 +1,467 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started Registering global classes... (30 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[   3% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[   6% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[   9% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  12% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  16% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  19% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  22% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  25% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  29% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  32% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  35% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  38% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  41% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  45% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  48% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  51% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  54% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  58% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  61% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  64% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  67% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  70% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  74% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  77% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  80% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  83% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  87% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  90% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  93% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started Scanning actions... (7 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | crate.svg[39m[0m
+[  12% ] [90m[1m_update_scan_actions[22m | floor.svg[39m[0m
+[  25% ] [90m[1m_update_scan_actions[22m | player.png[39m[0m
+[  37% ] [90m[1m_update_scan_actions[22m | player_directions.png[39m[0m
+[  50% ] [90m[1m_update_scan_actions[22m | wall.svg[39m[0m
+[  62% ] [90m[1m_update_scan_actions[22m | NotoSansCJK-Regular.ttc[39m[0m
+[  75% ] [90m[1m_update_scan_actions[22m | icon.svg[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (7 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  12% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  25% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  37% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  50% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  62% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  75% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mreimport[22m | NotoSansCJK-Regular.ttc[39m[0m
+[  12% ] [90m[1mreimport[22m | NotoSansCJK-Regular.ttc[39m[0m
+[  25% ] [90m[1mreimport[22m | crate.svg[39m[0m
+[  37% ] [90m[1mreimport[22m | floor.svg[39m[0m
+[  50% ] [90m[1mreimport[22m | player.png[39m[0m
+[  62% ] [90m[1mreimport[22m | player_directions.png[39m[0m
+[  75% ] [90m[1mreimport[22m | wall.svg[39m[0m
+[  87% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (7 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS JSON float coordinates accepted
+PASS missing fields rejected
+PASS nonobject rejected
+PASS missing player blocks play
+PASS draft without player may save
+PASS out of bounds rejected
+PASS fractional coordinates rejected
+PASS duplicates rejected
+PASS goal count mismatch rejected
+PASS box inside wall rejected
+PASS player inside box rejected
+PASS missing file reports error
+PASS broken JSON reports error
+PASS unauthorized save destination rejected
+PASS new save succeeds
+PASS saved data reloads
+PASS overwrite succeeds
+PASS previous save backed up
+PASS overwrite persists updated data
+PASS demo 1 valid
+PASS demo 2 valid
+PASS demo 3 valid
+PASS original preserved map valid user_custom_level.json
+PASS original preserved map valid user_custom_level_2.json
+STORAGE TESTS: 24/24
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS valid preview loaded
+PASS push succeeds
+PASS push onto goal completes and counts
+PASS movement blocked after completion
+PASS undo restores player/box/win
+PASS undo restores counters
+PASS restart initial state
+PASS gameplay never mutates preview design
+PASS wall collision
+PASS boundary collision
+PASS two boxes cannot push
+PASS box into wall blocked
+PASS box outside grid blocked
+PASS invalid preview safely blocks play
+GAMEPLAY TESTS: 14/14
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS blank draft has no player
+PASS painting marks dirty
+PASS eraser clears player
+PASS save requires explicit slot
+PASS empty slot saved
+PASS successful save clears dirty
+PASS existing slot requires overwrite confirmation
+PASS opening overwrite leaves file unchanged
+PASS overwrite cancel preserves dirty draft and picker
+PASS loading over dirty draft asks confirmation
+PASS cancel loading keeps draft
+PASS confirmed load restores saved draft
+PASS original map imports as unsaved copy
+PASS snapshot restores draft and dirty flag
+PASS back protects unsaved draft
+PASS back cancellation retains changes
+EDITOR TESTS PASSED: 16
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS first save succeeds
+PASS overwrite uses captured slot, not later selection
+PASS malformed load preserves draft and displays error
+PASS invalid preview blocked without scene change
+MORE EDITOR TESTS PASSED: 4
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS main menu launches
+PASS fresh user has three empty disabled slots
+PASS first-run demo starts without save files
+PASS restart keeps chosen demo
+PASS game returns to menu
+PASS menu opens editor
+PASS editor preview starts
+PASS preview can be completed
+PASS return from preview restores unmodified unsaved design
+PASS preview never writes slot 1
+PASS editor saves slot 2
+PASS menu refresh sees new slot
+PASS custom slot starts correct map
+PASS custom map wins
+NAVIGATION TESTS: 14/14
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS demo 1 completes in 3 moves
+PASS demo 2 completes in 10 moves
+PASS demo 3 completes in 10 moves
+DEMO TESTS: 3/3
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS fresh profile has no score
+PASS next level hidden before win
+PASS win offers next level
+PASS win persists best steps
+PASS worse score preserves best
+PASS undo win hides next
+PASS undo preserves achieved record
+PASS next loads following demo
+PASS restart resets victory CTA
+PRODUCT TESTS: 9
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS hidden mute button cannot enter selector focus chain
+PASS underlying menu hidden during selection
+PASS selector focuses first playable demo
+PASS next focus stays within selector
+PASS fresh profile shows incomplete status
+PASS closing selector restores mute button
+PASS closing selector restores menu
+PASS closing selector restores Play focus
+PASS opening selector refreshes best moves
+PASS Escape closes selector and restores focus
+MENU FOCUS TESTS: 10/10
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS new editor defaults no ability
+PASS toggle changes draft and marks dirty
+PASS saved ability persists
+PASS load restores ability control
+PASS preview snapshot retains ability
+PASS legacy/clear data resets ability
+EDITOR PULL TESTS PASSED: 6
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS old schema accepted
+PASS old maps default no pull
+PASS bad charge rejected: -1
+PASS bad charge rejected: 2
+PASS bad charge rejected: 0.5
+PASS bad charge rejected: 1
+PASS bad charge rejected: true
+PASS bad charge rejected: <null>
+PASS JSON float charge normalizes
+PASS charge persists through storage
+PASS preview receives charge
+PASS missing rear box rejects pull
+PASS failed pull consumes nothing
+PASS wall in retreat cell blocks pull
+PASS box in retreat cell blocks pull
+PASS valid pull succeeds
+PASS pull moves player and rear box correctly
+PASS pull counts one move and consumes one charge
+PASS second pull cannot spend exhausted charge
+PASS undo refunds charge and restores all counters
+PASS normal walking does not require pull
+PASS normal movement preserves charge
+PASS restart restores charge
+PASS pull never mutates editor preview
+PASS zero-direction pull rejected
+PASS Shift right input dispatches pull
+PASS boundary blocks pull without consumption
+PASS zero-charge classic mode rejects pull
+PASS demo 4 engine solution succeeds with exactly one pull
+PASS undo can leave victory for demo 4
+PASS restart pull demo 4
+PASS demo 5 engine solution succeeds with exactly one pull
+PASS undo can leave victory for demo 5
+PASS restart pull demo 5
+PULL TESTS: 34/34
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS initial facing down, idle
+PASS animated push accepted
+PASS logical push immediate
+PASS visual push starts at old cells
+PASS push faces box with effort
+PASS player and box interpolate halfway
+PASS sweat lingers after movement
+PASS effort ends at idle
+PASS undo restores facing and clears visual state
+PASS pull allowed during previous animation
+PASS pull faces box behind travel
+PASS new visual transition begins at logical origin
+PASS restart clears movement and sweat
+PASS blocked move faces wall but never counts
+PASS undo restores pre-turn orientation
+PASS rapid commands preserve logical movement
+PASS rapid movement settles at final cell
+ANIMATION TESTS: 17/17
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+AUDIO TESTS: 16/16
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS overwrite exclusively owns modal
+PASS real overwrite Cancel button defers then restores picker
+PASS cancel never overwrites saved bytes
+PASS cancel preserves dirty draft
+PASS dirty load opens exclusive discard confirmation
+PASS real discard Cancel button restores picker after old modal hides
+PASS discard cancellation retains unsaved wall
+PASS picker remains usable and requires fresh selection
+MODAL CANCEL TESTS: 8/8
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS initial pull instruction available
+PASS ordinary step succeeds
+PASS ordinary movement never claims pull spent
+PASS invalid pull rejected
+PASS failed pull keeps available tutorial
+PASS undo restores initial positional hint
+PASS valid pull succeeds
+PASS only actual consumption shows spent hint
+PASS undo spent pull restores available hint
+PASS restart restores tutorial
+TUTORIAL STATE TESTS: 10/10
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS game buttons are keyboard focusable
+PASS right moves player while menu button has focus
+PASS undo shortcut works while button focused
+PASS N cannot skip incomplete level
+PASS victory exposes Continue for key 4194309
+PASS victory focuses Continue for key 4194309
+PASS key advances to actual next scene 4194309
+PASS victory exposes Continue for key 32
+PASS victory focuses Continue for key 32
+PASS key advances to actual next scene 32
+PASS victory exposes Continue for key 78
+PASS victory focuses Continue for key 78
+PASS key advances to actual next scene 78
+PASS focused Continue activates through native Space input
+PASS last-level victory has only one menu-return button
+PASS undo restores ordinary return action
+PASS last level can be completed again after undo
+PASS N after final victory returns to main menu
+PASS preview victory keeps editor-return action
+PASS preview victory focuses return to editor
+PASS N does not advance preview into built-in levels
+KEYBOARD PROGRESS TESTS: 21/21
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS original picker names original draft not save slot
+PASS dirty import confirmation names actual source
+PASS original warning scoped to tested standard rules
+PASS cancel original import preserves draft
+PASS imported draft remains editable with caution
+PASS original source unchanged
+PASS final puzzle offers rules not specific box solution
+PASS final level has clear ending
+PASS single ending action fills former empty button slot
+PASS ending preserves save-failure warning
+PASS undo restores play and normal return
+PASS main menu explains pull shortcut
+COPY REVIEW TESTS: 12/12
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS old level5 record writes
+PASS keyboard chain reaches level1
+PASS actual gameplay solves level1 at optimum
+PASS keyboard chain reaches level2
+PASS actual gameplay solves level2 at optimum
+PASS keyboard chain reaches level3
+PASS actual gameplay solves level3 at optimum
+PASS keyboard chain reaches level4
+PASS actual gameplay solves level4 at optimum
+PASS keyboard chain reaches level5
+PASS actual gameplay solves level5 at optimum
+PASS keyboard chain reaches level6
+PASS actual gameplay solves level6 at optimum
+PASS new level undo exits victory
+PASS new level final move reproducible
+PASS keyboard chain reaches level7
+PASS actual gameplay solves level7 at optimum
+PASS new level undo exits victory
+PASS new level final move reproducible
+PASS level7 Enter returns menu
+PASS existing level5 best preserved
+PASS new records saved separately
+PASS all seven selector buttons exist
+PASS selector cards fully inside viewport
+APPEND LEVELS TESTS: 24/24
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS challenge defaults to unspoiled rules
+PASS challenge chapter and optional button visible
+PASS H requests first hint without moving
+PASS hint button requests second hint
+PASS restart preserves requested hints
+PASS hint depth capped at three
+PASS A deliberate corner never falsely warned while pull remains
+PASS hint does not cover final action
+PASS hint ignored after victory
+PASS fixed wall corner proves deadlock
+PASS goal corners excluded
+PASS board boundary corner detected
+PASS straight boundary is not corner
+PASS movable neighboring boxes not permanent geometry
+PASS any remaining pull suppresses warning
+PASS push into proven corner shows warning
+PASS undo clears stale corner warning
+PASS editor preview never receives built-in hints
+PASS other builtins never receive challenge hints
+PASS selector hides overlapping menu labels
+PASS menu restored on selector close
+GUIDANCE TESTS: 21/21
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS proven corner disables misleading hint button
+PASS H during warning does not secretly advance
+PASS after undo next H starts at first hint
+PASS starting preview deadlock recommends editing
+PASS walking does not replace initial-deadlock advice
+PASS restart retains correct preview advice
+PASS warm background remains with shade
+PASS repeat selector entry keeps consistent presentation
+FEEDBACK TESTS: 8/8
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS editor invitation hidden before victory
+PASS E cannot bypass incomplete puzzle
+PASS final win shows editor invitation
+PASS ending warm but not falsely all-level completion
+PASS editor and menu actions occupy separate rows
+PASS undo hides ending-only invitation
+PASS new ending preserves save failure warning
+PASS keyboard E enters real editor scene
+PASS ending entry preserves existing unsaved editor draft
+PASS ending editor entry never masquerades as preview
+WORKSHOP ENDING TESTS: 10/10
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+demo_1.json solution=RRR visited=25
+demo_2.json solution=RRRLLLDRRR visited=1529
+demo_3.json solution=LLURDRURLU visited=569
+demo_4.json solution=r visited=11
+  Without pull: no solution after exhausting 76 states
+demo_5.json solution=rDLLURURRRDDLLLULD visited=2547
+  Without pull: no solution after exhausting 253 states
+demo_6.json solution=LRRRUULLLDLDUd visited=632
+  Without pull: no solution after exhausting 363 states
+demo_7.json solution=URDRDRDLLUULUlDRRUL visited=686
+  Without pull: no solution after exhausting 182 states
+user_custom_level.json solution=None visited=1332
+user_custom_level_2.json solution=None visited=31
+All 7 curated demo levels are solvable.
+A/B optimal lengths and tempting first-pull deadlocks verified.
+All 281 assertions passed with isolated save directories and clean resource import.

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+<!-- Original vector interpretation of the user's cross-braced wooden crate sketch. -->
+<ellipse cx="66" cy="113" rx="51" ry="9" fill="#201b16" opacity=".25"/>
+<g stroke="#4b3527" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 34 37 13 110 15 116 96 91 116 12 110Z" fill="#be854c" stroke-width="4"/>
+<path d="M13 34 38 14 110 16 87 36Z" fill="#edc58a" stroke-width="3"/>
+<path d="M87 36 110 16 115 96 91 115Z" fill="#ac713e" stroke-width="3"/>
+<path d="m14 35 74 1 2 78-76-4Z" fill="#ddb074" stroke-width="3"/>
+<path d="m19 59 65 2M19 84l67 1M44 40l1 64M68 41l1 63" stroke="#a37246" stroke-width="1.7" fill="none"/>
+<path d="m20 37 6-5 60 1 3 10-68-1ZM14 39l9 2-1 62-9 7ZM82 40l10-5 1 79-11-5ZM16 101l69 4 6 10-77-5Z" fill="#f0c98e" stroke-width="2.5"/>
+<path d="m25 43 53 55-7 7-48-53Z" fill="#f3d097" stroke-width="2.5"/>
+<path d="m77 44 7 7-52 53-8-8Z" fill="#e7bd80" stroke-width="2.5"/>
+<path d="m93 44 15-13 2 56-15 15Z" fill="#c79155" stroke-width="2"/>
+<path d="m95 67 14-12m-13 27 14-13M99 39l2 57" fill="none" stroke-width="1.8"/>
+<path d="m31 28 62 1m-50-9 58 1M40 17l-14 14m37-12L48 33m34-13L69 33" fill="none" stroke="#b98752" stroke-width="1.6"/>
+<path d="m30 58 5 3m-8 14 9 1m17 21 8 1m-26 10 12 1m12-61 12 1M29 36l13 1M91 24l9-1" fill="none" stroke="#b38350" stroke-width="1.5"/>
+<g fill="#705039" stroke="none"><circle cx="18" cy="46" r="2"/><circle cx="18" cy="99" r="2"/><circle cx="86" cy="45" r="2"/><circle cx="87" cy="105" r="2"/><circle cx="31" cy="51" r="1.8"/><circle cx="74" cy="96" r="1.8"/><circle cx="75" cy="51" r="1.8"/><circle cx="31" cy="97" r="1.8"/></g>
+</g></svg>
