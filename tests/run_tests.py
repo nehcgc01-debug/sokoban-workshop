@@ -50,10 +50,10 @@ suites = {
  'navigation':'NAVIGATION TESTS: 14/14', 'demo':'DEMO TESTS: 3/3',
  'product':'PRODUCT TESTS: 9', 'menu_focus':'MENU FOCUS TESTS: 10/10',
  'editor_pull':'EDITOR PULL TESTS PASSED: 6', 'pull':'PULL TESTS: 34/34',
- 'animation':'ANIMATION TESTS: 17/17', 'audio':'AUDIO TESTS: 16/16', 'modal_cancel':'MODAL CANCEL TESTS: 8/8', 'tutorial_state':'TUTORIAL STATE TESTS: 10/10', 'keyboard_progress':'KEYBOARD PROGRESS TESTS: 21/21', 'copy_review':'COPY REVIEW TESTS: 12/12', 'append_levels':'APPEND LEVELS TESTS: 24/24', 'guidance':'GUIDANCE TESTS: 21/21', 'feedback':'FEEDBACK TESTS: 8/8', 'workshop_ending':'WORKSHOP ENDING TESTS: 10/10'
+ 'animation':'ANIMATION TESTS: 17/17', 'audio':'AUDIO TESTS: 16/16', 'modal_cancel':'MODAL CANCEL TESTS: 8/8', 'tutorial_state':'TUTORIAL STATE TESTS: 10/10', 'keyboard_progress':'KEYBOARD PROGRESS TESTS: 21/21', 'copy_review':'COPY REVIEW TESTS: 12/12', 'append_levels':'APPEND LEVELS TESTS: 24/24', 'guidance':'GUIDANCE TESTS: 21/21', 'feedback':'FEEDBACK TESTS: 8/8', 'workshop_ending':'WORKSHOP ENDING TESTS: 10/10', 'dead_state':'DEAD STATE SUITE PASSED'
 }
 for suite, marker in suites.items():
     with tempfile.TemporaryDirectory(prefix='kuro_test_') as folder:
         checked_run([godot,'--headless','--path',str(project),'--script',f'res://tests/{suite}_tests.gd'],isolated_env(folder),marker)
 checked_run([sys.executable,str(project/'tests/solve_levels.py')], marker='All 7 curated demo levels are solvable.')
-print('All 281 assertions passed with isolated save directories and clean resource import.')
+print('All 307 assertions (281 + 26 dead-state/V7.8) passed with isolated save directories and clean resource import.')
