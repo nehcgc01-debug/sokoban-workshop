@@ -33,6 +33,12 @@ var ability_label: Label
 var audio_button: Button
 var hint_button: Button
 var hint_level = 0
+# V7.7: exact dead-state check for built-in maps, Shift preview, work-order context.
+const DeadSolver = preload("res://dead_state_solver.gd")
+var dead_solver = null
+var dead_rewind_steps = 0
+var order_label: Label
+var headline_label: Label
 var preview_starts_blocked = false
 # Logical state commits immediately; these fields are presentation only.
 const MOVE_SECONDS = 0.18
@@ -86,7 +92,16 @@ func _ready() -> void:
 	initial_data = result["data"].duplicate(true)
 	title_label.text = "试玩当前关卡" if is_preview else ("示例关卡 %d" % GameState.selected_builtin if GameState.selected_builtin > 0 else "自定义存档 %d" % GameState.selected_slot)
 	if not is_preview and GameState.selected_builtin > 0:
-		title_label.text += " · " + ("挑战篇" if GameState.selected_builtin >= 6 else "入门篇")
+		title_label.text += " · " + Catalog.chapter(GameState.selected_builtin)
+		order_label.text = Catalog.ORDERS[GameState.selected_builtin - 1]
+		if GameState.selected_builtin >= 6:
+			# Challenge chapter: the headline turns lamp-amber; the UI accent follows the situation.
+			headline_label.text = "推箱工坊 / 夜班工单"
+			headline_label.modulate = Board.GOLD
+	elif is_preview:
+		order_label.text = "试玩你布置的工单 · Esc 回编辑器继续修改"
+	else:
+		order_label.text = "自定义工单 · 来自你的创作存档"
 	restart_level()
 
 func _build_ui() -> void:
@@ -95,10 +110,13 @@ func _build_ui() -> void:
 	add_child(ui)
 	var headline = _label(ui, "推箱工坊 / PLAY", Vector2(52, 32), Vector2(600, 48), 30)
 	headline.modulate = Board.TEAL
+	headline_label = headline
 	audio_button = _button(ui, AudioService.label_text(), Vector2(930, 38), Vector2(158, 38), AudioService.toggle_mute)
 	audio_button.add_theme_font_size_override("font_size", 16)
 	AudioService.muted_changed.connect(func(_muted: bool): audio_button.text = AudioService.label_text())
-	title_label = _label(ui, "关卡加载中", Vector2(54, 87), Vector2(700, 36), 21)
+	title_label = _label(ui, "关卡加载中", Vector2(54, 80), Vector2(640, 30), 20)
+	order_label = _label(ui, "", Vector2(54, 107), Vector2(640, 28), 16)
+	order_label.modulate = Color("d9c39a")
 	var panel = PanelContainer.new()
 	panel.position = Vector2(710, 145)
 	panel.size = Vector2(378, 474)
@@ -116,7 +134,7 @@ func _build_ui() -> void:
 	return_button = _button(ui, "返回编辑器" if not GameState.preview_data.is_empty() else "返回主菜单", Vector2(736, 424), Vector2(318, 46), leave_game)
 	next_button = _button(ui, "下一关  →", Vector2(736, 482), Vector2(318, 40), next_level)
 	next_button.hide()
-	editor_end_button = _button(ui, "设计自己的关卡  E", Vector2(736, 482), Vector2(318, 40), open_editor_from_ending)
+	editor_end_button = _button(ui, "打开关卡编辑器  E", Vector2(736, 482), Vector2(318, 40), open_editor_from_ending)
 	editor_end_button.hide()
 	hint_button = _button(ui, "需要一点提示？ H", Vector2(736, 482), Vector2(318, 40), request_hint)
 	hint_button.hide()
@@ -125,7 +143,7 @@ func _build_ui() -> void:
 	ability_label.modulate = Board.TEAL
 	ability_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	ability_label.add_theme_font_size_override("font_size", 16)
-	_label(ui, "方向键 / WASD 移动   ·   Z 撤销   ·   R 重开   ·   Esc 返回", Vector2(54, 668), Vector2(880, 36), 18)
+	_label(ui, "方向键 / WASD 移动  ·  Z 撤销  ·  R 重开  ·  按住 Shift 预览牵引  ·  Esc 返回", Vector2(54, 668), Vector2(1000, 36), 18)
 
 func _label(parent: Node, text: String, position_: Vector2, size_: Vector2, font_size: int) -> Label:
 	var label = Label.new()
@@ -151,6 +169,32 @@ func _button(parent: Node, text: String, position_: Vector2, size_: Vector2, cal
 func _draw() -> void:
 	if loaded:
 		Board.draw_board(self, current_data(), ORIGIN, CELL)
+		_draw_pull_preview()
+
+## V7.7: while Shift is held, show where a pull would put the box and the player.
+## It only shows the result; it never judges whether the pull is a good idea.
+func _draw_pull_preview() -> void:
+	if not Input.is_key_pressed(KEY_SHIFT) or pull_charges <= 0 or level_complete or animation_time < MOVE_SECONDS:
+		return
+	for d in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
+		var box_cell = player_pos - d
+		var dest = player_pos + d
+		if not boxes.has(box_cell) or _blocked(dest) or dest in boxes:
+			continue
+		var player_rect = Rect2(ORIGIN + Vector2(player_pos) * CELL, Vector2.ONE * CELL).grow(-12)
+		draw_rect(player_rect, Color(0.34, 0.88, 0.75, 0.22), true)
+		draw_rect(player_rect, Board.TEAL, false, 3.0)
+		var from_c = ORIGIN + (Vector2(box_cell) + Vector2(0.5, 0.5)) * CELL
+		var to_c = ORIGIN + (Vector2(player_pos) + Vector2(0.5, 0.5)) * CELL
+		var dest_c = ORIGIN + (Vector2(dest) + Vector2(0.5, 0.5)) * CELL
+		draw_line(from_c, to_c, Board.TEAL, 4.0, true)
+		draw_circle(to_c, 6.0, Board.TEAL)
+		draw_arc(dest_c, CELL * 0.22, 0, TAU, 28, Board.TEXT, 3.0, true)
+		draw_line(to_c, dest_c, Color(Board.TEXT, 0.7), 2.0, true)
+
+func _input_shift_redraw(event: InputEvent) -> void:
+	if event is InputEventKey and event.keycode == KEY_SHIFT:
+		queue_redraw()
 
 func current_data() -> Dictionary:
 	var wall_list = []
@@ -194,14 +238,17 @@ func restart_level() -> void:
 	facing = Vector2i.DOWN
 	_clear_animation()
 	history.clear()
+	dead_solver = null
+	dead_rewind_steps = 0
 	loaded = true
 	_update_status()
 	queue_redraw()
 
 func _input(event: InputEvent) -> void:
+	_input_shift_redraw(event)
 	# Gameplay directions keep moving the character even after Tab/click focuses a button.
 	# Enter/Space are left to normal focused-button activation; on victory that is Continue.
-	if event is InputEventKey and event.pressed and event.keycode in [KEY_E, KEY_H, KEY_R, KEY_Z, KEY_ESCAPE, KEY_N, KEY_RIGHT, KEY_D, KEY_LEFT, KEY_A, KEY_DOWN, KEY_S, KEY_UP, KEY_W]:
+	if event is InputEventKey and event.pressed and event.keycode in [KEY_B, KEY_E, KEY_H, KEY_R, KEY_Z, KEY_ESCAPE, KEY_N, KEY_RIGHT, KEY_D, KEY_LEFT, KEY_A, KEY_DOWN, KEY_S, KEY_UP, KEY_W]:
 		get_viewport().set_input_as_handled()
 		_unhandled_input(event)
 
@@ -209,6 +256,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not event is InputEventKey or not event.pressed or event.echo:
 		return
 	match event.keycode:
+		KEY_B: rewind_to_last_solvable()
 		KEY_E: open_editor_from_ending()
 		KEY_H: request_hint()
 		KEY_R: restart_level()
@@ -316,8 +364,14 @@ func _update_status() -> void:
 		status_label.text = "关卡完成！\n可以撤销复盘、重开或返回。" if level_complete else _play_hint()
 		if not level_complete and has_permanent_corner():
 			status_label.text = "起点就有箱子卡在非目标角落。\n请返回编辑器修改。" if preview_starts_blocked else "非目标角落中的箱子已无法移出。\nZ 撤销，或 R 重开再试。"
+		dead_rewind_steps = _exact_dead_rewind_steps()
+		if dead_rewind_steps > 0:
+			if has_permanent_corner():
+				status_label.text = "非目标角落中的箱子已无法移出。\nB 回到出错前（撤销 %d 步）\nR 重开本关" % dead_rewind_steps
+			else:
+				status_label.text = "这一局已经无解。\nB 回到出错前（撤销 %d 步）\nR 重开本关" % dead_rewind_steps
 		if hint_button:
-			hint_button.disabled = has_permanent_corner()
+			hint_button.disabled = has_permanent_corner() or dead_rewind_steps > 0
 			hint_button.text = "先撤销死角，再查看提示 H" if hint_button.disabled else "需要一点提示？ H"
 			hint_button.visible = not level_complete and not is_preview and GameState.selected_builtin in [6,7]
 		status_label.modulate = Board.TEAL if level_complete else Color.WHITE
@@ -326,10 +380,14 @@ func _update_status() -> void:
 			if progress_save_failed:
 				status_label.text += "\n本次通关记录未能写入磁盘。"
 			elif not is_preview and GameState.selected_builtin > 0:
-				status_label.text += " 最佳：%d 步" % Progress.best_moves(GameState.selected_builtin)
+				# V7.7: three short lines so the text never runs under the buttons.
+				var best = Progress.best_moves(GameState.selected_builtin)
+				var optimal = Catalog.OPTIMAL[GameState.selected_builtin - 1]
+				status_label.text = "关卡完成！共 %d 步。\n最佳 %d 步 · 最优 %d%s\n" % [moves, best, optimal, " ★" if best <= optimal else ""]
+				status_label.text += Catalog.INSIGHTS.get(GameState.selected_builtin, "Z 可撤销复盘，R 再挑战最优。")
 		if level_complete and not is_preview and GameState.selected_builtin == Catalog.COUNT:
 			status_label.text = "最后一关完成！共 %d 步。\n木箱归位，灯火仍暖。\n" % moves
-			status_label.text += "记录未保存；Z 可撤销复盘。" if progress_save_failed else "来布置你自己的关卡吧。"
+			status_label.text += "记录未保存；Z 可撤销复盘。" if progress_save_failed else Catalog.INSIGHTS[Catalog.COUNT]
 		if editor_end_button:
 			editor_end_button.visible = level_complete and not is_preview and GameState.selected_builtin == Catalog.COUNT
 		if next_button:
@@ -340,6 +398,34 @@ func _update_status() -> void:
 			return_button.visible = not (next_button.visible and GameState.selected_builtin >= Catalog.COUNT)
 			if level_complete and not was_complete:
 				(next_button if next_button.visible else return_button).grab_focus()
+
+## V7.7: built-in maps only (small state spaces, cross-checked by tests). Custom maps keep the corner check.
+## Returns 0 while the board is still solvable; otherwise the number of undo steps back
+## to the latest solvable state in history.
+func _exact_dead_rewind_steps() -> int:
+	if is_preview or GameState.selected_builtin <= 0 or level_complete or not loaded:
+		return 0
+	if dead_solver == null:
+		dead_solver = DeadSolver.new(walls, goals)
+	if dead_solver.status(player_pos, boxes.duplicate(), pull_charges) != "dead":
+		return 0
+	var back = 0
+	for i in range(history.size() - 1, -1, -1):
+		back += 1
+		var h: Dictionary = history[i]
+		if dead_solver.status(h["player"], h["boxes"].duplicate(), h["pull_charges"]) == "solvable":
+			return back
+	return 0
+
+## V7.7: B jumps back to the last solvable state in one action, undoing the decisive mistake.
+func rewind_to_last_solvable() -> void:
+	var steps = dead_rewind_steps
+	if steps <= 0:
+		return
+	for i in steps:
+		undo_move()
+	if ability_label:
+		ability_label.text = "已回到出错前：再走刚才那一步，这一局就会无解。\n" + ability_label.text
 
 func open_editor_from_ending() -> void:
 	if not loaded or not level_complete or is_preview or GameState.selected_builtin != Catalog.COUNT:
@@ -376,7 +462,8 @@ func has_permanent_corner() -> bool:
 func request_hint() -> void:
 	if not loaded or is_preview or level_complete or GameState.selected_builtin not in [6,7]:
 		return
-	if has_permanent_corner():
+	# V7.8: also blocked while the exact check says the board is dead (B / Z first).
+	if has_permanent_corner() or dead_rewind_steps > 0:
 		return
 	hint_level = mini(hint_level + 1, 3)
 	_update_status()

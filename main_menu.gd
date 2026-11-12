@@ -34,13 +34,21 @@ func _build_menu() -> void:
 	var art = Node2D.new()
 	art.set_script(preload("res://menu_art.gd"))
 	add_child(art)
-	var eyebrow = label("灯火未熄 · 今晚的归位工作", 17, Color("bfa983"))
+	# V7.7: the menu follows the night's progress (situation, not story).
+	var done = 0
+	for index in range(1, Catalog.COUNT + 1):
+		if Progress.best_moves(index) >= 0:
+			done += 1
+	var eyebrow_text = "灯火未熄 · 今晚的归位工作 · 工单 %d / %d" % [done, Catalog.COUNT]
+	if done >= Catalog.COUNT:
+		eyebrow_text = "灯火仍暖 · 今晚 %d 张工单全部归位" % Catalog.COUNT
+	var eyebrow = label(eyebrow_text, 17, Color("bfa983") if done < Catalog.COUNT else Color("f3bc66"))
 	eyebrow.position = Vector2(78, 80)
 	add_child(eyebrow)
 	var title = label("推箱工坊", 62, Color("f3dfb5"))
 	title.position = Vector2(72, 112)
 	add_child(title)
-	var subtitle = label("把木箱送回金色光圈。", 24, Color("9bb6a9"))
+	var subtitle = label("把木箱送回金色光圈。" if done < Catalog.COUNT else "工坊归整好了。来布置一张你自己的工单？", 24, Color("9bb6a9"))
 	subtitle.position = Vector2(80, 206)
 	add_child(subtitle)
 	var choices = VBoxContainer.new()
@@ -49,8 +57,8 @@ func _build_menu() -> void:
 	choices.size = Vector2(340, 240)
 	choices.add_theme_constant_override("separation", 15)
 	add_child(choices)
-	choices.add_child(button("开始归位 · 选择关卡", _show_levels, 64))
-	choices.add_child(button("布置工坊 · 关卡编辑器", _open_editor, 58))
+	choices.add_child(button("开始游戏", _show_levels, 64))
+	choices.add_child(button("关卡编辑器", _open_editor, 58))
 	choices.add_child(button("离开工坊", func(): get_tree().quit(), 48))
 	var note = label("方向键 / WASD 移动 · Z 撤销 · R 重开\nShift + 方向键：牵引关卡中拉箱", 17, Color("8ca497"))
 	note.position = Vector2(80, 540)
@@ -126,13 +134,17 @@ func _build_selector() -> void:
 		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		custom.add_child(b)
 		slot_buttons.append(b)
-	column.add_child(label("空存档可以到「设计自己的关卡」中创建。", 16, Color("b6ad95")))
+	column.add_child(label("空存档可以在「关卡编辑器」中创建。", 16, Color("b6ad95")))
 	column.add_child(button("返回主菜单", _hide_levels, 44))
 
 func _show_levels() -> void:
 	for index in range(1, Catalog.COUNT + 1):
 		var best = Progress.best_moves(index)
-		builtin_buttons[index - 1].text = LEVEL_NAMES[index - 1] + ("\n已完成 · 最佳 %d 步" % best if best >= 0 else "\n未完成")
+		var optimal = Catalog.OPTIMAL[index - 1]
+		var record = "\n未完成 · 最优 %d 步" % optimal
+		if best >= 0:
+			record = "\n已完成 · 最佳 %d 步 / 最优 %d" % [best, optimal] + (" ★" if best <= optimal else "")
+		builtin_buttons[index - 1].text = LEVEL_NAMES[index - 1] + record
 	for index in range(1, 4):
 		var b = slot_buttons[index - 1]
 		var path = Store.slot_path(index)
@@ -169,7 +181,8 @@ func _play_slot(index: int) -> void:
 func _start(path: String, builtin: int, slot: int) -> void:
 	var result = Store.load_path(path)
 	if not result.ok:
-		notice.dialog_text = result.error + "\n请在关卡编辑器检查此地图。"
+		# V7.7: the editor cannot open a file that fails to parse either; point to the real fix.
+		notice.dialog_text = result.error + "\n这个存档已损坏，编辑器也无法读取。\n可在编辑器里把新关卡保存到这个存档位来覆盖它。"
 		notice.popup_centered()
 		return
 	GameState.preview_data = {}
