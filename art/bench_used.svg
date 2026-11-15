@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+<!-- Lab: the bench after the crate was opened: the open, empty crate halves rest on it. Walkable. -->
+<ellipse cx="64" cy="112" rx="50" ry="8" fill="#201b16" opacity=".18"/>
+<g stroke="#3a2a1e" stroke-linejoin="round" stroke-linecap="round" opacity=".85">
+<path d="M22 70h10v40H22ZM96 70h10v40H96Z" fill="#5f4430" stroke-width="3"/>
+<path d="M14 40 26 24h76l12 16v30H14Z" fill="#8f6a47" stroke-width="4"/>
+<path d="M14 40 26 24h76l12 16Z" fill="#a98159" stroke-width="3"/>
+<path d="M34 46 40 30h30l-4 16Z" fill="#7a4a31" stroke-width="2.5"/>
+<path d="M70 30 92 22l6 16-24 8Z" fill="#9a6040" stroke-width="2.5"/>
+<path d="M48 38h10" stroke="#d9524a" stroke-width="4"/>
+</g>
+</svg>

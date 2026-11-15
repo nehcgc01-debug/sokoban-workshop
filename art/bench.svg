@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+<!-- Lab: workbench drawn flat on the floor tile (walkable), with a dashed drop zone on its top. -->
+<ellipse cx="64" cy="112" rx="50" ry="8" fill="#201b16" opacity=".22"/>
+<g stroke="#3a2a1e" stroke-linejoin="round" stroke-linecap="round">
+<path d="M22 70h10v40H22ZM96 70h10v40H96Z" fill="#6e4a30" stroke-width="3"/>
+<path d="M14 40 26 24h76l12 16v30H14Z" fill="#a8774b" stroke-width="4"/>
+<path d="M14 40 26 24h76l12 16Z" fill="#c9965f" stroke-width="3"/>
+<path d="M14 58h100" stroke="#7d5535" stroke-width="2"/>
+<path d="M98 44h12v10H98Z" fill="#8a8f8c" stroke-width="2"/>
+</g>
+<rect x="34" y="27" width="60" height="26" rx="5" fill="none" stroke="#f0d08a" stroke-width="3" stroke-dasharray="7 5"/>
+<path d="M58 34l6-5 6 5M64 29v14" fill="none" stroke="#f0d08a" stroke-width="3" stroke-linecap="round"/>
+</svg>

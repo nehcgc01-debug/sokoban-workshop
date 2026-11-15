@@ -1,8 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-<path d="M5 19 16 7 115 8 123 18 122 119 6 120Z" fill="#343b36" stroke="#222b27" stroke-width="4" stroke-linejoin="round"/>
-<path d="M7 20 17 8 114 9 121 20Z" fill="#738272" stroke="#303c33" stroke-width="2"/>
-<path d="m9 22 109-1 1 87-109 1Z" fill="#47564b" stroke="#2c382f" stroke-width="3"/>
-<g stroke-linecap="round" fill="none"><path d="M44 23l-1 82m38-82 1 82" stroke="#2a3930" stroke-width="3"/><path d="m18 30-1 59m11-36 1 45m25-68 1 34m15 7-1 29m23-67 1 63m14-54-1 25" stroke="#617360" stroke-width="2"/><path d="M12 25l101-1" stroke="#8a9a7b" stroke-width="2"/></g>
-<path d="m8 93 112 1 1 16-113 1Z" fill="#697862" stroke="#2e3b31" stroke-width="3" stroke-linejoin="round"/>
-<g fill="#27342b"><circle cx="21" cy="102" r="2.5"/><circle cx="105" cy="102" r="2.5"/></g>
+<!-- Lab: masonry instead of planks, so a fixed wall never reads as another (pushable) crate. -->
+<path d="M4 14 14 5h100l10 9v107H4Z" fill="#2c3530" stroke="#1d2420" stroke-width="4" stroke-linejoin="round"/>
+<path d="M6 15 15 7h98l9 8Z" fill="#6c7a6c" stroke="#2a332d" stroke-width="2"/>
+<g stroke="#26302a" stroke-width="3" stroke-linejoin="round">
+<path d="M7 18h55v24H7Z" fill="#56665a"/><path d="M62 18h59v24H62Z" fill="#4e5e52"/>
+<path d="M7 42h30v25H7Z" fill="#4b5a4f"/><path d="M37 42h55v25H37Z" fill="#5a6a5d"/><path d="M92 42h29v25H92Z" fill="#506054"/>
+<path d="M7 67h55v25H7Z" fill="#526256"/><path d="M62 67h59v25H62Z" fill="#5b6b5e"/>
+<path d="M7 92h30v26H7Z" fill="#4f5f53"/><path d="M37 92h55v26H37Z" fill="#485749"/><path d="M92 92h29v26H92Z" fill="#55655a"/>
+</g>
+<g stroke="#7d8d7b" stroke-width="2" stroke-linecap="round" opacity=".7"><path d="M12 22h44M67 22h48M12 46h20M42 46h44M12 71h44M67 71h48M42 96h44"/></g>
+<g fill="#2a352e" opacity=".55"><circle cx="26" cy="32" r="2"/><circle cx="84" cy="56" r="2"/><circle cx="101" cy="80" r="2"/><circle cx="58" cy="106" r="2"/></g>
 </svg>

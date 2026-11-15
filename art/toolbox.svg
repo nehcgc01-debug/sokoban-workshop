@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+<!-- Lab: tool crate. Same wooden construction as the cargo crate, but painted, tied with a red
+     ribbon and carrying a tag with a coiled rope, so "this one holds something" reads at a glance. -->
+<ellipse cx="66" cy="113" rx="51" ry="9" fill="#201b16" opacity=".25"/>
+<g stroke="#3f2e25" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 34 37 13 110 15 116 96 91 116 12 110Z" fill="#8f5a3c" stroke-width="4"/>
+<path d="M13 34 38 14 110 16 87 36Z" fill="#c98a5c" stroke-width="3"/>
+<path d="M87 36 110 16 115 96 91 115Z" fill="#7a4a31" stroke-width="3"/>
+<path d="m14 35 74 1 2 78-76-4Z" fill="#b2774f" stroke-width="3"/>
+<path d="m19 59 65 2M19 84l67 1" stroke="#8a5a3b" stroke-width="1.7" fill="none"/>
+<!-- ribbon: vertical and horizontal bands over the front and the lid -->
+<path d="M44 36h14l1 76-14-1Z" fill="#d9524a" stroke-width="2.5"/>
+<path d="M15 64l73 1v13l-73-1Z" fill="#d9524a" stroke-width="2.5"/>
+<path d="M50 35 73 15h12L62 35Z" fill="#e8665c" stroke-width="2"/>
+<path d="M88 61 112 41v13l-24 20Z" fill="#c4463f" stroke-width="2"/>
+<!-- bow -->
+<path d="M51 70c-16-14-24-2-13 6 6 4 13-3 13-6Zm0 0c16-14 24-2 13 6-6 4-13-3-13-6Z" fill="#f07a6f" stroke-width="2.5"/>
+<circle cx="51" cy="70" r="5" fill="#f3c66a" stroke-width="2"/>
+<!-- tag with a rope coil -->
+<path d="M62 74l16 14" stroke="#3f2e25" stroke-width="2" fill="none"/>
+<path d="M74 84l22-6 6 20-22 6Z" fill="#f6e6c4" stroke-width="2.5"/>
+<g fill="none" stroke="#2f8f7c" stroke-width="2.2"><circle cx="88" cy="92" r="6"/><circle cx="88" cy="92" r="2.6"/></g>
+</g></svg>
