@@ -9,69 +9,101 @@ Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
 [  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
 [92m[ DONE ][39m [1mfirst_scan_filesystem[22m
 [0m
-[   0% ] [90m[1mupdate_scripts_classes[22m | Started Registering global classes... (30 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started Registering global classes... (53 steps)[39m[0m
 [   0% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[   1% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [   3% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
-[   6% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[   5% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[   7% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [   9% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  11% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [  12% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  14% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [  16% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
-[  19% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  18% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  20% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [  22% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  24% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [  25% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  27% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [  29% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
-[  32% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  31% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  33% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [  35% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  37% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [  38% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
-[  41% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
-[  45% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  40% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  42% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  44% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  46% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [  48% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  50% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [  51% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
-[  54% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
-[  58% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  53% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  55% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  57% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  59% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [  61% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  62% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [  64% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
-[  67% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  66% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  68% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [  70% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  72% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [  74% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  75% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [  77% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
-[  80% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  79% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  81% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [  83% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  85% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [  87% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  88% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [  90% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
-[  93% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  92% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  94% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  96% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [92m[ DONE ][39m [1mupdate_scripts_classes[22m
 [0m
-[   0% ] [90m[1m_update_scan_actions[22m | Started Scanning actions... (7 steps)[39m[0m
-[   0% ] [90m[1m_update_scan_actions[22m | crate.svg[39m[0m
-[  12% ] [90m[1m_update_scan_actions[22m | floor.svg[39m[0m
-[  25% ] [90m[1m_update_scan_actions[22m | player.png[39m[0m
-[  37% ] [90m[1m_update_scan_actions[22m | player_directions.png[39m[0m
-[  50% ] [90m[1m_update_scan_actions[22m | wall.svg[39m[0m
-[  62% ] [90m[1m_update_scan_actions[22m | NotoSansCJK-Regular.ttc[39m[0m
-[  75% ] [90m[1m_update_scan_actions[22m | icon.svg[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started Scanning actions... (10 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | bench.svg[39m[0m
+[   9% ] [90m[1m_update_scan_actions[22m | bench_used.svg[39m[0m
+[  18% ] [90m[1m_update_scan_actions[22m | crate.svg[39m[0m
+[  27% ] [90m[1m_update_scan_actions[22m | floor.svg[39m[0m
+[  36% ] [90m[1m_update_scan_actions[22m | player.png[39m[0m
+[  45% ] [90m[1m_update_scan_actions[22m | player_directions.png[39m[0m
+[  54% ] [90m[1m_update_scan_actions[22m | toolbox.svg[39m[0m
+[  63% ] [90m[1m_update_scan_actions[22m | wall.svg[39m[0m
+[  72% ] [90m[1m_update_scan_actions[22m | NotoSansCJK-Regular.ttc[39m[0m
+[  81% ] [90m[1m_update_scan_actions[22m | icon.svg[39m[0m
 [92m[ DONE ][39m [1m_update_scan_actions[22m
 [0m
-[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (7 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (10 steps)[39m[0m
 [   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
-[  12% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
-[  25% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
-[  37% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
-[  50% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
-[  62% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
-[  75% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   9% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  18% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  27% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  36% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  45% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  54% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  63% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  72% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  81% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
 [   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
 [   0% ] [90m[1mreimport[22m | NotoSansCJK-Regular.ttc[39m[0m
-[  12% ] [90m[1mreimport[22m | NotoSansCJK-Regular.ttc[39m[0m
-[  25% ] [90m[1mreimport[22m | crate.svg[39m[0m
-[  37% ] [90m[1mreimport[22m | floor.svg[39m[0m
-[  50% ] [90m[1mreimport[22m | player.png[39m[0m
-[  62% ] [90m[1mreimport[22m | player_directions.png[39m[0m
-[  75% ] [90m[1mreimport[22m | wall.svg[39m[0m
-[  87% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[   9% ] [90m[1mreimport[22m | NotoSansCJK-Regular.ttc[39m[0m
+[  18% ] [90m[1mreimport[22m | bench.svg[39m[0m
+[  27% ] [90m[1mreimport[22m | bench_used.svg[39m[0m
+[  36% ] [90m[1mreimport[22m | crate.svg[39m[0m
+[  45% ] [90m[1mreimport[22m | floor.svg[39m[0m
+[  54% ] [90m[1mreimport[22m | player.png[39m[0m
+[  63% ] [90m[1mreimport[22m | player_directions.png[39m[0m
+[  72% ] [90m[1mreimport[22m | toolbox.svg[39m[0m
+[  81% ] [90m[1mreimport[22m | wall.svg[39m[0m
+[  90% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
 [92m[ DONE ][39m [1mreimport[22m
 [0m
-[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (7 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (10 steps)[39m[0m
 [   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
 [92m[ DONE ][39m [1mreimport[22m
 [0m
@@ -140,8 +172,6 @@ PASS box into wall blocked
 PASS box outside grid blocked
 PASS invalid preview safely blocks play
 GAMEPLAY TESTS: 14/14
-WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
-   at: cleanup (core/object/object.cpp:2663)
 Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
 
 PASS blank draft has no player
@@ -236,7 +266,7 @@ Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
 PASS old schema accepted
 PASS old maps default no pull
 PASS bad charge rejected: -1
-PASS bad charge rejected: 2
+PASS bad charge rejected: 3
 PASS bad charge rejected: 0.5
 PASS bad charge rejected: 1
 PASS bad charge rejected: true
@@ -369,30 +399,46 @@ WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
 Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
 
 PASS old level5 record writes
-PASS keyboard chain reaches level1
-PASS actual gameplay solves level1 at optimum
-PASS keyboard chain reaches level2
-PASS actual gameplay solves level2 at optimum
-PASS keyboard chain reaches level3
-PASS actual gameplay solves level3 at optimum
-PASS keyboard chain reaches level4
-PASS actual gameplay solves level4 at optimum
-PASS keyboard chain reaches level5
-PASS actual gameplay solves level5 at optimum
-PASS keyboard chain reaches level6
-PASS actual gameplay solves level6 at optimum
+PASS keyboard chain reaches position 1 (id 1)
+PASS actual gameplay solves id 1 at catalog optimum
+PASS keyboard chain reaches position 2 (id 2)
+PASS actual gameplay solves id 2 at catalog optimum
+PASS keyboard chain reaches position 3 (id 3)
+PASS actual gameplay solves id 3 at catalog optimum
+PASS keyboard chain reaches position 4 (id 4)
+PASS actual gameplay solves id 4 at catalog optimum
+PASS keyboard chain reaches position 5 (id 5)
+PASS actual gameplay solves id 5 at catalog optimum
+PASS keyboard chain reaches position 6 (id 8)
+PASS actual gameplay solves id 8 at catalog optimum
 PASS new level undo exits victory
 PASS new level final move reproducible
-PASS keyboard chain reaches level7
-PASS actual gameplay solves level7 at optimum
+PASS keyboard chain reaches position 7 (id 6)
+PASS actual gameplay solves id 6 at catalog optimum
 PASS new level undo exits victory
 PASS new level final move reproducible
-PASS level7 Enter returns menu
+PASS keyboard chain reaches position 8 (id 7)
+PASS actual gameplay solves id 7 at catalog optimum
+PASS new level undo exits victory
+PASS new level final move reproducible
+PASS keyboard chain reaches position 9 (id 9)
+PASS actual gameplay solves id 9 at catalog optimum
+PASS new level undo exits victory
+PASS new level final move reproducible
+PASS keyboard chain reaches position 10 (id 10)
+PASS actual gameplay solves id 10 at catalog optimum
+PASS new level undo exits victory
+PASS new level final move reproducible
+PASS keyboard chain reaches position 11 (id 11)
+PASS actual gameplay solves id 11 at catalog optimum
+PASS new level undo exits victory
+PASS new level final move reproducible
+PASS last level Enter returns menu
 PASS existing level5 best preserved
 PASS new records saved separately
-PASS all seven selector buttons exist
+PASS a selector button for every level
 PASS selector cards fully inside viewport
-APPEND LEVELS TESTS: 24/24
+APPEND LEVELS TESTS: 40/40
 WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
    at: cleanup (core/object/object.cpp:2663)
 Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
@@ -447,9 +493,880 @@ PASS keyboard E enters real editor scene
 PASS ending entry preserves existing unsaved editor draft
 PASS ending editor entry never masquerades as preview
 WORKSHOP ENDING TESTS: 10/10
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS map 1: 380 states, 0 false alarms, 0 missed dead states, 0 unknown (13 ms total)
+PASS map 2: 3416 states, 0 false alarms, 0 missed dead states, 0 unknown (134 ms total)
+PASS map 3: 2894 states, 0 false alarms, 0 missed dead states, 0 unknown (100 ms total)
+PASS map 4: 456 states, 0 false alarms, 0 missed dead states, 0 unknown (15 ms total)
+PASS map 5: 2684 states, 0 false alarms, 0 missed dead states, 0 unknown (90 ms total)
+PASS map 8: 129 states, 0 false alarms, 0 missed dead states, 0 unknown (3 ms total)
+PASS map 6: 1415 states, 0 false alarms, 0 missed dead states, 0 unknown (44 ms total)
+PASS map 7: 708 states, 0 false alarms, 0 missed dead states, 0 unknown (21 ms total)
+PASS map 9: 756 states, 0 false alarms, 0 missed dead states, 0 unknown (23 ms total)
+PASS map 10: 3775 states, 0 false alarms, 0 missed dead states, 0 unknown (86 ms total)
+PASS map 11: 4396 states, 0 false alarms, 0 missed dead states, 0 unknown (92 ms total)
+PASS V7.8: UI font uses the Simplified Chinese face of the bundled TTC (got Noto Sans CJK SC)
+PASS V7.8: project theme font selects TTC face 2
+PASS every catalog level appears exactly once in play order
+PASS map 6 shows its work order with its play position
+PASS title shows play position and chapter
+PASS habitual first pull on map 6 is reported dead immediately
+PASS hint is paused while the board is dead
+PASS V7.8 regression: H does not advance hints on a non-corner dead board
+PASS V7.8 regression: hint button action also blocked while dead
+PASS B rewinds exactly to the last solvable state and refunds the pull
+PASS V7.8 regression: hint level unchanged after B, button re-enabled
+PASS after B, H advances normally
+PASS intended corner setup at step 13 is not flagged (pull still available)
+PASS average move with exact check < 5 ms (0.09 ms)
+PASS win shows optimal steps and the insight line
+PASS B does nothing on a won board
+PASS intro chapter keeps the day headline
+PASS box pushed against the far wall on map 1 is reported dead (corner check missed this)
+PASS V7.8: main menu buttons read 开始游戏 / 关卡编辑器 (["开始游戏", "关卡编辑器", "离开工坊"])
+Dead-state suite: 30 checks, 0 failures
+DEAD STATE SUITE PASSED
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS corrupt progress variant detected (7 bytes)
+PASS corrupt progress variant detected (12 bytes)
+PASS corrupt progress variant detected (11 bytes)
+PASS corrupt progress is reported to the player
+PASS corrupt progress is moved aside, not overwritten
+PASS recording works again after recovery
+PASS healthy progress file reports nothing
+PASS first save
+PASS second save creates .bak
+PASS broken slot with usable backup
+PASS restore from backup loads again
+PASS broken file kept as .corrupt
+PASS set aside empties the slot
+PASS restore without backup refuses
+PASS every insight line fits one panel line (longest 15 chars)
+PASS recovery dialog focuses 从备份恢复 when a backup exists
+PASS without backup: restore hidden, focus on 取消
+PASS menu opens with focus on 开始游戏
+PASS two presses reach hint 2
+PASS third press asks before revealing the key step
+PASS moving cancels the pending confirmation
+PASS confirming shows the final hint
+PASS summary hidden while other maps are unfinished
+PASS summary shows when all maps are done, with star count
+PASS summary never steals focus from the Enter action
+PASS undo hides the summary
+V79 product suite: 26 checks, 0 failures
+V79 PRODUCT SUITE PASSED
 WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
    at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS share code round-trips every built-in level exactly
+PASS share code is short and labelled (60 chars)
+PASS share code tolerates case and surrounding whitespace
+PASS a single changed cell fails the checksum
+PASS random text is rejected
+PASS two player starts are rejected
+PASS fingerprint ignores list order
+PASS fresh profile: nothing verified
+PASS verified map is recognised
+PASS any edit makes the map unverified again
+PASS check runs in slices; its button turns into Cancel
+PASS map 6: solvable and needs the pull
+PASS successful check marks the map verified
+PASS map 6 without pull is reported unsolvable
+PASS classic map 1 solvable, no pull note
+PASS huge open map ends with a result or an honest 'no conclusion' (2509 ms, 364 frames)
+PASS UI kept rendering frames while the check ran
+PASS pasted code loads as an unsaved draft
+PASS bad code shows an error instead of changing the map
+PASS map 2 not yet verified
+PASS winning a test play marks the map verified
+Creator suite: 21 checks, 0 failures
+CREATOR SUITE PASSED
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS editor no longer uses a Thread (single-threaded Web safe)
+PASS one-push map is checked within a few frames (1)
+PASS long check keeps frames short (worst 7.1 ms)
+PASS pressing V again cancels the check
+PASS editing the map cancels a running check
+PASS leaving the editor mid-check is immediate (102 ms)
+PASS an empty draft saves
+PASS draft slot is labelled as an unfinished draft
+PASS playing a draft offers the editor, not recovery
+PASS draft opens in the editor, bound to its slot, unmodified
+PASS unreadable file is labelled as damaged
+PASS unreadable file goes to recovery
+PASS first broken file set aside
+PASS second broken file set aside
+PASS both corrupt copies kept under distinct names
+PASS restore keeps the third copy too
+PASS progress corrupt copies are not replaced either
+PASS a win never overwrites an unreadable record file
+PASS all status texts clear the buttons by >= 8 px (worst 25 px: id 1: 这一局已经无解：工具箱上不了台。 | B 回到出错前（撤销 99 步） | R 重开 · Esc 回编辑器)
+PASS map 8 hint explains where the pulled box ends up
+PASS completing the set on map 2 (not last) shows the summary
+PASS Next button keeps its place; editor is offered via E in the panel
+PASS E opens the editor from the mid-map summary
+PASS replaying a middle map later does not repeat the summary
+PASS all 2772 single-cell typos over 11 maps are rejected
+PASS old 2-digit V7.9 codes get a clear message
+PASS importing a draft code says what is missing
+PASS a shared map imported on a clean profile can be test-played to the end
+V7.10 suite: 28 checks, 0 failures
+V710 SUITE PASSED
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS key before builtin header is rejected
+PASS whitespace does not hide misplaced record
+PASS record refuses malformed existing progress
+PASS refused write preserves exact original bytes
+PASS integrity check gives player a recovery notice
+PASS malformed progress moved aside without altering bytes
+PASS valid old seven-level progress needs no recovery
+PASS old stable IDs and best moves stay intact
+PASS new level can be added without losing old records
+PASS normal ConfigFile serialization remains healthy
+PASS Windows CRLF progress stays compatible
+PASS existing empty-file and empty-section behavior preserved
+PROGRESS ORDER TESTS: 12/12
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS a win is mirrored synchronously
+PASS second record
+PASS file lost (simulated unsynced write)
+PASS both records recovered from the mirror
+PASS merge takes the lower moves per level from either side
+PASS reconcile is idempotent
+PASS never overwrites an unreadable progress file
+PASS a malformed mirror is ignored
+PASS slot save is mirrored
+PASS unsynced slot is restored from the mirror
+PASS slot reconcile is idempotent
+PASS mirror (latest save) wins over a stale file
+PASS clearing a slot also clears its mirror
+PASS a cleared slot does not come back
+PASS restore from backup updates the mirror
+PASS desktop build does not use the mirror
+PASS Ctrl+V opens the paste box and does not start a check
+PASS pasting into the box and confirming imports the map
+PASS Ctrl+C without a system clipboard shows the code to copy by hand
+PASS plain V still starts the check
+PASS P opens the paste box
+PASS a bad code in the box shows the error dialog
+PASS desktop menu keeps 离开工坊
+PASS default volume is the original -16 dB; maximum stays below -12 dB
+PASS volume and mute come back after a restart
+PASS volume 0 plays nothing
+PASS a damaged settings file falls back to defaults
+PASS menu volume slider drives the shared volume
+V7.11 suite: 28 checks, 0 failures
+V711 SUITE PASSED
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS playtest log is off by default
+PASS no attempt is tracked while off
+PASS nothing is written while off
+PASS players see no indicator while off
+PASS Ctrl+Shift+P turns it on and shows the indicator
+PASS dead entry and pull counted
+PASS B counts as a rewind, not as undos
+PASS hint levels and their times are recorded
+PASS a normal undo is counted
+PASS a restart is counted
+PASS the win and its move count are recorded
+PASS moves_made includes undone and restarted moves (16)
+PASS one line written when moving on
+PASS line has play position and time, no internal fields
+PASS next level starts a new attempt
+PASS leaving unsolved is recorded
+PASS editor test plays are not logged
+PASS indicator shows the attempt count
+PASS Ctrl+Shift+E exports an exact copy (/tmp/kuro_test_d53xh9yt/data/godot/app_userdata/Kuro_sukobann_lab6/kuro_playtest_20261115_102842.jsonl)
+PASS turning it off keeps the data and hides the indicator
+PLAYTEST TESTS: 20 checks, 0 failures
+PLAYTEST SUITE PASSED
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS OS close is intercepted
+PASS blank editor does not claim disk save
+PASS editing persists independent recovery draft
+PASS autosave does not touch numbered slots
+PASS window close with dirty draft asks first
+PASS close prompt blocks editor input
+PASS repeated close stays safe
+PASS cancel keeps draft and process
+PASS keep-and-exit saves recovery before quit
+PASS fresh editor restores recoverable draft
+PASS recovery is disclosed
+PASS preview/menu snapshot remains protected
+PASS explicit discard clears recovery
+PASS discarded draft does not reappear
+PASS failed recovery write never quits
+PASS failed write leaves in-memory map intact
+PASS retry after write failure recovers latest map
+PASS named save clears recovery
+PASS named save has truthful status
+PASS clean editor closes without unnecessary prompt
+PASS manual copy fallback exposes complete code without false success
+CLOSE DRAFT TESTS: 21/21
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS menu shows that a kept draft is waiting
+PASS opening another map asks about the kept draft and blocks editing
+PASS while undecided the kept draft is untouched
+PASS input during the question changes nothing
+PASS closing the window while undecided keeps the kept draft
+PASS restore puts the kept draft on screen as unsaved work
+PASS restore says which slot the draft was based on
+PASS kept draft is still protected after restoring
+PASS edits after restoring keep auto-protecting
+PASS slot 2 file was never written
+PASS question appears again for a new kept draft
+PASS closing the box restores; a new map shows no base slot
+PASS discard drops the kept draft and opens the requested map
+PASS editor is usable after discarding
+PASS returning to the same draft does not ask
+PASS Esc with changes opens keep/discard/cancel with focus on keep
+PASS the default button keeps the work
+PASS cancel stays in the editor
+PASS keep returns to the menu and keeps the draft
+PASS menu then shows the waiting draft
+PASS editor brings the kept draft back
+PASS discard and return clears the draft
+PASS menu label returns to normal
+PASS if keeping fails the editor stays open with the map
+PASS saved to slot 3
+PASS cancelling the slot list keeps the slot in the status
+PASS the auto-kept draft remembers it came from slot 3
+DRAFT KEEP TESTS: 27 checks, 0 failures
+DRAFT KEEP SUITE PASSED
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS 1080p desktop: 1.25x (1440x900)
+PASS 1440p desktop: 1.5x
+PASS 4K desktop: 2.5x
+PASS 1366x768 laptop: shrinks to fit above the taskbar ((1025, 641))
+PASS a screen just above the design size keeps it
+PASS never below half size
+PASS headless run has no real window to resize
+PASS F11 does nothing without a real window
+PASS volume slider uses the workshop style
+WINDOW TESTS: 9 checks, 0 failures
+WINDOW SUITE PASSED
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS first restore names slot 2
+PASS an edit after restoring keeps origin 2 in the file
+PASS second restore still names slot 2
+PASS origin survives a test play
+PASS keep-and-return keeps the origin
+PASS conflict question shown
+PASS failed discard explains and keeps the draft
+PASS the question comes back; the editor is not left unprotected
+PASS kept draft untouched by the failed discard
+PASS a second try succeeds once the disk works
+PASS status bar shows that the draft is not protected
+PASS next edit retries and clears the warning
+PASS blank editor
+PASS Z with nothing to undo says so
+PASS only real changes are recorded
+PASS Z undoes the last placement
+PASS Shift+Z redoes it
+PASS Ctrl+Z / Ctrl+Y work and do not start a check
+PASS undoing back to the starting map is no longer unsaved and drops the draft
+PASS redo makes it unsaved and protected again
+PASS a new edit clears redo
+PASS erasing is undoable
+PASS pull toggle is undoable and the switch follows
+PASS cleared
+PASS clear can be undone
+PASS share code imported
+PASS importing a share code can be undone
+PASS history survives a test play
+PASS undo after a test play works
+PASS undo back to the saved map shows it as saved
+PASS history is capped at 100 steps
+PASS Z does nothing while a dialog is open
+PASS leaving to the menu forgets the history
+PASS minimum window is 960x600
+PASS on a tiny screen the minimum never exceeds the fitted size
+V7.13 TESTS: 35 checks, 0 failures
+V713 SUITE PASSED
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS restored origin is 2
+PASS OS close keep preserves restored origin
+PASS successful keep exits
+PASS second restoration retains origin wording
+PASS write failure persists flag
+PASS failure status shown
+PASS leave failure shows only error modal
+PASS leave failure keeps editable draft
+PASS close failure shows only error modal
+PASS close failure never exits
+PASS same-content retry clears flag
+PASS same-content success clears stale status
+PASS success clears dirty-label error
+PASS successful retry actually protects current map
+PASS retry close still retains origin
+PASS fullscreen captures size and position
+PASS fullscreen restores size and position
+V7131 TESTS: 17 checks, 0 failures
+V7131 SUITE PASSED
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS lab map T1: all 34 reachable states agree with the Python BFS
+PASS lab map T2: all 540 reachable states agree with the Python BFS
+PASS lab map T3: all 1510 reachable states agree with the Python BFS
+PASS lab map C1: all 1801 reachable states agree with the Python BFS
+PASS lab and level-5 insight lines fit one panel line (longest 16)
+PASS T1 is a valid lab map
+PASS a crate without a bench is refused for play, with the reason
+PASS …but can still be saved as a draft
+PASS a crate on a goal is refused
+PASS more than 2 starting pulls is refused
+PASS old maps keep their exact old form (no new keys)
+PASS old maps keep the exact V7.13.1 share code
+PASS a crate map gets a KUROT code (KUROT0-WWWWWWW/WPOTKWW/WWWWOWW/WBGOOWW/WWOOOWW/WWWWWWW-933B54)
+PASS KUROT code round-trips the crate and the bench
+PASS 2 starting pulls round-trip in a KUROT code
+PASS an unknown future code says it needs a newer version
+PASS a crate letter inside an old-style code is rejected, not silently accepted
+PASS player standing on the bench survives a share code
+PASS an old slot file loads unchanged
+PASS re-saving an old map writes no new fields
+PASS a crate map saves and loads in a slot
+PASS draft recovery keeps the crate and the bench
+PASS T1 starts with no pull, a crate and two meter slots
+PASS T1 says what the crate is for
+PASS pulling with no charge explains where a pull comes from
+PASS walking up to the crate does not move it
+PASS pushing the crate onto the bench opens it: +1 pull, clear feedback
+PASS the bench now shows the opened crate and nothing blocks it
+PASS undo closes the crate and puts it back
+PASS T1 solved in its optimal 8 moves and recorded
+PASS T1 win shows the insight and the next lab map
+PASS restart restores the closed crate and the charges
+PASS pull-panel texts stay inside the panel (lowest edge 610: 已回到出错前（再走那一步就会无解）。 | Shift + 方向键：后退并拉动身后的箱子。 | 工具箱上工作台 → 牵引 +1（最多 2）)
+PASS pulling the crate spends a pull and moves it like a box
+PASS pulling the crate onto the bench opens it and returns the pull
+PASS a box cannot be pushed into the crate
+PASS the crate cannot be pushed into a wall
+PASS a map can be won with the crate still closed (it is not a cargo box)
+PASS opening at 2 / 2 keeps 2 and explains the rope was wasted
+PASS undo brings the unopened crate back
+PASS T2 has one pull and hints
+PASS spending the pull on the box first is dead; the message blames that pull, states the stranded crate below, and offers B
+PASS the hint button says to press B first
+PASS B goes back to before the mistake
+PASS T2 optimal route works (35 moves)
+PASS T3 starts full (2 / 2) with the crate under the bench
+PASS opening at 2 / 2 wastes the rope and the exact check calls it dead
+PASS B closes the crate again
+PASS T3 optimal route: 3 pulls, crate opened at 1 / 2 (28 moves)
+PASS C1 uses only the existing rules
+PASS C1 optimal route works
+PASS test play starts solvable
+PASS test play: dead state found exactly, the message offers B and the editor
+PASS a heavy map is judged in slices: nothing is claimed while the search runs
+PASS beyond the solver cap no dead claim is made
+PASS a map that starts dead says so and points to the editor
+PASS level 5 now has graded hints and an observation prompt
+PASS first hint shows
+PASS level 5 win names the idea
+PASS editor check: T2 needs the crate (shown next to the button)
+PASS editor check: an optional crate is reported as optional
+PASS key 6 selects the crate; placing it again moves it
+PASS a bench placed on the crate replaces it
+PASS undo restores the crate
+PASS erasing removes the crate
+PASS the second switch gives 2 starting pulls
+PASS turning pulls off clears both switches
+PASS test play of a crate without a bench explains what is missing
+PASS test play carries the crate into the game
+LAB TOOL TESTS: 69 checks, 0 failures
+LAB TOOL SUITE PASSED
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS reported map: starts solvable although the optional crate can never open
+PASS reported map: pushing the cargo box up is the decisive move (reason push, B = 1 step)
+PASS reported map: the message blames the push, never the crate, and offers B / R / Esc
+PASS reported map: B returns to the state before the push
+PASS optional map: the crate is now provably unable to reach the bench
+PASS optional map: a lost optional crate alone is not a dead state and shows no warning
+PASS optional map: the later cargo mistake is a push; the crate lost earlier is not blamed
+PASS required map: starts solvable
+PASS required map: one push to the left is still fine
+PASS required map: pushing the crate against the wall is decisive (reason tool_stuck)
+PASS required map: here the crate is named, with the rule under the buttons
+PASS T2: the pull on the cargo box is decisive (reason pull) and it also strands the crate
+PASS T2: headline = the pull; the stranded crate is stated as a fact below
+PASS T2: pulling the crate out and pushing it back is tool_stuck
+PASS T2: after the crate is open, a bad cargo push is just a bad push
+PASS T3: crate pushed away = tool_moved (not claimed to be unreachable)
+PASS T3: the text does not say the crate cannot reach the bench
+PASS T3: opening while full is decisive, and one more pull would have been enough (proved)
+PASS T3: the text agrees with the meter (2 left, the wasted one is what is missing)
+PASS T3: the dead-state text does not hand out the solution
+PASS T3: B closes the crate again and says so
+PASS T3: a second pull in the wrong place = pull, crate still fine
+PASS T3: dead with a pull left never says 'not enough'
+PASS test play of a map that starts dead: says so, Esc to the editor, no B
+PASS a custom save that starts dead points to the level editor (Esc goes to the menu here)
+PASS custom save: B and R, no editor shortcut that does not exist there
+PASS huge map: the scene is up while the search is still running (entered in 32 ms)
+PASS huge map: the head start is small (77 states after two frames)
+PASS huge map: the panel says 'checking', never 'dead'
+PASS huge map: the player can move while the search runs
+PASS huge map: moving cancels the old search and starts one for the new state, with no search work inside the key press
+PASS huge map: undo cancels too
+PASS huge map: restart cancels too
+PASS huge map: out of budget the answer is 'unknown' after 97 slices (about 0.6 s of search in total)
+PASS huge map: the longest slice took 7.1 ms (budget 6 ms, limit 40 ms)
+PASS huge map: the panel says it cannot tell and makes no dead claim
+PASS huge map: after giving up no new search is started on later moves
+PASS huge map: nor after a restart
+PASS huge map again: search running
+PASS leaving during a search goes back to the editor without errors
+PASS level 11 as a test play: fine before the bad push
+PASS sliced result: right after the move nothing is claimed yet
+PASS sliced result: 2 frames later the panel shows the proven dead state with B
+PASS sliced result: hint gate follows
+PASS built-in map: judged inside the move, no slices, same answer
+PASS solver: a capped search proves nothing and stores nothing
+PASS solver: a slice stops after the requested number of states
+PASS solver: a cancelled job stays cancelled and proves nothing
+PASS solver: level 11 under a tiny cap is unknown
+PASS solver: with the real cap it is solved over 33 slices, and the proof is then reused even under the tiny cap
+PASS T3 start: the rule 'opening while full adds nothing' is on screen before any mistake
+PASS T3 start: no solution in the standing text
+PASS T3 start: hint 1 is about being full
+PASS T3 after spending a pull: a new stage shows its guide, not a hint (Lab 4)
+PASS T3 after spending a pull: the 'full' note is gone
+PASS T3 after opening: hint 1 (asked for) is about the cargo box, not about opening
+PASS T3 after opening: the standing guide is updated too
+PASS T3 undo: the guide goes back with the board
+PASS T2 start guide
+PASS T2 after pulling the crate: guide updated
+PASS T2 after opening: guide updated
+PASS T2 after opening: hint 1 no longer talks about the crate
+PASS T1 after opening: the guide says what to do with the new pull
+PASS T1: the request fits one line above the board
+PASS T2: the request fits one line above the board
+PASS T3: the request fits one line above the board
+PASS C1: the request fits one line above the board
+PASS T2b: the request fits one line above the board
+PASS every lab text fits its place (tightest 25 px: id 12: 开局牵引 0 次。 | 工具箱推上工作台，牵引 +1。 | 再把贴墙的箱子拉出来。)
+PASS four lab orders carry a fixture
+PASS T1: the fixture sits in a wall cell next to a goal, with a request and a thank-you
+PASS T2: the fixture sits in a wall cell next to a goal, with a request and a thank-you
+PASS T3: the fixture sits in a wall cell next to a goal, with a request and a thank-you
+PASS C1: the fixture sits in a wall cell next to a goal, with a request and a thank-you
+PASS T1 first visit: the lamp is there and dark
+PASS T1: the order says who asks, what for, and names the thing that will change
+PASS T1: still dark one move before the end
+PASS T1: the last pull lights the lamp
+PASS T1: the thank-you is beside the board and names the lasting change
+PASS T1: Next is focused at once; nothing covers the board
+PASS T1: the drawn light reaches full brightness
+PASS T1 undo: the lamp drops to the kept low level (the record stays)
+PASS T1 undo: the record is kept
+PASS T1 restart: same
+PASS T1 replay: starts at the kept low level, not dark
+PASS T1 replay: full again when done
+PASS menu: the rest corner shows T1's lamp lit and the other three dark
+PASS menu: the new item pulses once and the flag is consumed
+PASS menu again: still lit, no second pulse
+PASS T2: fixture stove, request from 老周, dark at first
+PASS T2: done -> fixture on, thanks shown
+PASS T3: fixture kettle, request from 阿婆, dark at first
+PASS T3: done -> fixture on, thanks shown
+PASS C1: fixture cat, request from 小满, dark at first
+PASS C1: done -> fixture on, thanks shown
+PASS menu: all four fixtures are on, and the three finished since the last visit all pulse
+PASS T2b is a lab map outside the T1 -> C1 chain; the rest corner still has four items
+PASS T2b loads with one pull and a crate, no fixture
+PASS T2b keeps T2's trap: the pull on the cargo box first is decisive
+PASS T2b: solved in its 24-move optimum; the button leads back to the menu
+PASS level 1 has no fixture and no thank-you line
+PASS finishing a lab order for the first time does not show the 11-map ending
+PASS failed save: the stove lights on the board, the text says the corner will not change
+PASS editor: an unchecked map says so next to the button
+PASS editor: 'checking' while it runs
+PASS editor: the sentence appears once (message card); next to the button only '✓ 有解 · 必须开箱'
+PASS editor: no third copy in the status line
+PASS editor: any edit replaces the verdict with 'not checked yet'
+PASS editor: undoing the edit brings the verified state back (✓ 有解 · 必须开箱)
+PASS editor: an unsolvable map gets the short red verdict
+PASS editor test play of the huge map: the game scene is up with the search still running (34 ms)
+PASS hand-drawn text uses the project font (Simplified Chinese face)
+PASS no scene draws text with the engine fallback font ([])
+LAB2 TESTS: 113 checks, 0 failures
+LAB2 SUITE PASSED
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS T1: over 14 reachable states the shown guide never contradicts the board []
+PASS T1: every stage is reached at least once ({ "": 2, "open": 11 })
+PASS T2: over 221 reachable states the shown guide never contradicts the board []
+PASS T2: every stage is reached at least once ({ "": 15, "used_a": 15, "used": 60, "open": 16, "out": 16, "carry": 80 })
+PASS T3: over 152 reachable states the shown guide never contradicts the board []
+PASS T3: every stage is reached at least once ({ "": 13, "used": 8, "open": 82, "top_right": 14, "top": 14 })
+PASS C1: over 150 reachable states the shown guide never contradicts the board []
+PASS C1: every stage is reached at least once ({ "": 50, "pulled": 28, "last": 28, "pulled_one": 14 })
+PASS T2b: over 269 reachable states the shown guide never contradicts the board []
+PASS T2b: every stage is reached at least once ({ "": 15, "used_a": 15, "used": 60, "open": 16, "carry": 128, "out": 16 })
+PASS T2: after pulling the cargo out the guide no longer asks for it
+PASS T2: hint 1 after the pull talks about pushing, not pulling
+PASS T2 undo: back in the corner, the corner stage's guide is back (Lab 4: not a hint)
+PASS T2: pushing the cargo back into the corner is dead (B = 1)
+PASS T2 B: the text matches the restored board
+PASS T2: once the cargo is on its way the guide says so
+PASS T2 restart: start text
+PASS C1: after the pull the guide no longer asks where the box should go
+PASS C1: one box home, the guide is about the other
+PASS C1 undo: back to the 'pulled' text
+PASS C1 restart: start text
+PASS T2b: after the pull right the guide says only pushing is left
+PASS T2b undo (Z key): corner text back
+PASS T3: box in the top row, the guide stops asking it to go up
+PASS share box example names the plain and the toolbox format (例：KURO1-…（普通地图）或 KUROT2-…（含工具箱）)
+PASS paste: the dialog opens with the text box focused and editable
+PASS paste: the note lists both formats
+PASS paste without a readable clipboard: says so and offers typing (clipboard feature: false)
+PASS a typed KUROT1 code imports the crate, the bench and 1 pull
+PASS a typed plain KURO code (map 7) still imports unchanged
+PASS a broken code: the error names both formats and wraps
+PASS a cut-off code is called incomplete, not someone else's code
+PASS parser: foreign text / wrong checksum / two codes pasted together each get their own message
+PASS copy without a clipboard: the full code is shown, selected, read-only, with Ctrl+C / copy-by-hand advice
+PASS menu: the main line says '主线工单 0 / 11' although a lab request is done (灯火未熄 · 今晚的主线工单 0 / 11)
+PASS menu: the rest corner counts lab requests separately (夜班休息角 · 实验委托 1 / 4)
+PASS lab map: headline and order line say 'lab request, not main line'
+PASS main map 1 keeps '工单 01'
+PASS write fails: the retry button appears
+PASS write fails: status says so, the note says how to retry and that the corner will not change; the lamp still lights on the board
+PASS write fails: Next is still there
+PASS Y while the cause is still there: still failed, still offered
+PASS Y after fixing it: saved, the button goes, the corner will light
+PASS after a successful retry the panel confirms it
+PASS after a successful retry Next has the focus again
+PASS unreadable file: no write, retry disabled, the text says the menu will set it aside
+PASS unreadable file: byte-identical after the win and after Y
+PASS last main map: same retry text
+PASS failure text fits above the buttons (25 px): 关卡完成！共 99 步。 | 通关记录未保存，原记录没改动。 | 确认存档文件夹可写，再按 Y 重试。
+PASS failure text fits above the buttons (25 px): 最后一关完成！共 99 步。 | 记录文件读不了，为免覆盖未保存。 | 回主菜单会另存坏文件，再通关即可。
+LAB3 TESTS: 50 checks, 0 failures
+LAB3 SUITE PASSED
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS first save: the file holds exactly the record, no temporary files, no backup yet
+PASS overwrite: new content in place, the previous file kept as .bak
+PASS a worse result changes nothing
+PASS a better result replaces only its own line
+PASS fault 'write_new': fails at 'write_new', the old file is byte-identical (measured: unchanged), no temporary files left
+PASS fault 'partial_new': fails at 'verify_new', the old file is byte-identical (measured: unchanged), no temporary files left
+PASS fault 'verify_new': fails at 'verify_new', the old file is byte-identical (measured: unchanged), no temporary files left
+PASS fault 'mark': fails at 'mark', the old file is byte-identical (measured: unchanged), no temporary files left
+PASS fault 'backup': fails at 'backup', the old file is byte-identical (measured: unchanged), no temporary files left
+PASS fault 'replace': fails at 'replace', the old file is byte-identical (measured: unchanged), no temporary files left
+PASS fault after the replace: reported as 'cannot confirm', the old content is in .bak
+PASS half replace: no record file, old content in .bak, verified .new kept, reported as 'in the backup'
+PASS retry after a half replace: the old records come back together with the new one
+PASS killed before the replace: the old file is untouched, .new and .new.ok remain
+PASS next start: the interrupted write is completed (上次保存在中途被打断，已经补完通关记录。)
+PASS killed between delete and move: no record file at all
+PASS next start through the menu: all records back, the player is told
+PASS an unverified .new is dropped; the real file wins
+PASS file missing, .new unverified: the backup comes back and the text says the last result may be missing
+PASS no record file and no sign of an interrupted write: the backup is left alone
+PASS damaged file: no write, byte-identical, nothing temporary
+PASS next start: the damaged file is kept as .corrupt and the backup restored (通关记录文件已损坏，无法读取。 | 原文件已另存为 progress.cfg.corrupt， | 已经从备份 progress.cfg.bak 恢复。 | 最后一次通关的成绩可能不在里面。)
+PASS replace: the panel says the result is not saved and '原有记录已核对，内容没有变'
+PASS replace: under the retry button: the corner will not light, Y retries
+PASS replace: the note is below the button, one line, inside the panel (ends at 608)
+PASS replace: the status is three lines and fits above the buttons (25 px)
+PASS replace: Y saves, earlier records are intact, the corner will light, the note goes back to its place
+PASS replace_removed: the panel says the result is not saved and '原有记录在备份里'
+PASS replace_removed: under the retry button: the corner will not light, Y retries
+PASS replace_removed: the note is below the button, one line, inside the panel (ends at 608)
+PASS replace_removed: the status is three lines and fits above the buttons (25 px)
+PASS replace_removed: Y saves, earlier records are intact, the corner will light, the note goes back to its place
+PASS verify_final: the panel says the result is not saved and '无法确认原有记录'
+PASS verify_final: under the retry button: the corner will not light, Y retries
+PASS verify_final: the note is below the button, one line, inside the panel (ends at 608)
+PASS verify_final: the status is three lines and fits above the buttons (25 px)
+PASS verify_final: Y saves, earlier records are intact, the corner will light, the note goes back to its place
+PASS main map, first save fails: 'no earlier record' and the best moves will not change
+PASS error dialog shows all 4 lines and stays in the window ([P: (296.0, 252.0), S: (560.0, 215.0)]): 无法导入：分享码不完整（应有三段，用 - 连接）
+PASS error dialog: the OK button is visible and focused, Enter closes it
+PASS error dialog shows all 4 lines and stays in the window ([P: (296.0, 252.0), S: (560.0, 215.0)]): 无法导入：这不是推箱工坊的分享码。 普通地图：K
+PASS error dialog: the OK button is visible and focused, Enter closes it
+PASS error dialog shows all 4 lines and stays in the window ([P: (296.0, 252.0), S: (560.0, 215.0)]): 无法导入：分享码不完整或抄错了（校验不通过）。 
+PASS error dialog: the OK button is visible and focused, Enter closes it
+PASS error dialog shows all 5 lines and stays in the window ([P: (296.0, 236.0), S: (560.0, 248.0)]): 无法导入：这是更新版本的推箱工坊分享码，当前版本
+PASS error dialog: the OK button is visible and focused, Enter closes it
+PASS error dialog shows all 5 lines and stays in the window ([P: (296.0, 236.0), S: (560.0, 248.0)]): 无法导入：这是旧版（V7.9）的分享码，请让对方
+PASS error dialog: the OK button is visible and focused, Enter closes it
+PASS error dialog shows all 4 lines and stays in the window ([P: (296.0, 252.0), S: (560.0, 215.0)]): 无法导入：分享码不完整（应有三段，用 - 连接）
+PASS error dialog: the OK button is visible and focused, Enter closes it
+PASS error dialog shows all 2 lines and stays in the window ([P: (296.0, 285.0), S: (560.0, 150.0)]): 分享前请先让关卡可以试玩： 地图上必须有玩家起点
+PASS error dialog: the OK button is visible and focused, Enter closes it
+PASS error dialog shows all 1 lines and stays in the window ([P: (296.0, 285.0), S: (560.0, 150.0)]): 短
+PASS error dialog: the OK button is visible and focused, Enter closes it
+PASS error dialog shows all 6 lines and stays in the window ([P: (296.0, 219.0), S: (560.0, 281.0)]): 这是一段特意写得很长的说明文字，用来检查弹窗会不
+PASS error dialog: the OK button is visible and focused, Enter closes it
+PASS a dialog opened too small grows to 215 px and then shows every line
+PASS an absurd text is cut with '…' and the dialog stays inside the window
+PASS share dialog (paste): every note line visible, inside the window
+PASS share dialog (paste): the text box has focus and sits above the buttons
+PASS share dialog (copy): every note line visible, inside the window
+PASS share dialog (copy): the text box has focus and sits above the buttons
+PASS window (960, 600): the error dialog still shows every line
+PASS window (1152, 720): the error dialog still shows every line
+PASS window (1600, 1000): the error dialog still shows every line
+window sizes: ["(960, 600) -> view (1152.0, 720.0), lines 4/4", "(1152, 720) -> view (1152.0, 720.0), lines 4/4", "(1600, 1000) -> view (1152.0, 720.0), lines 4/4"]
+PASS T2 start: the start guide
+PASS T2 start: H, H -> hint 2 of the start stage
+PASS T2: the third H only warns
+PASS T2: the fourth H shows hint 3
+PASS T2 step 1: a move inside the stage keeps the open hint
+PASS T2 step 2: a move inside the stage keeps the open hint
+PASS T2 step 3: entering stage 'used_a' shows its guide, not hint 3
+PASS T2 stage 'used_a': one H opens hint 1 of this stage only
+PASS T2 stage 'used_a': hint 3 asks again in a new stage
+PASS T2 step 8: entering stage 'used' shows its guide, not hint 0
+PASS T2 stage 'used': one H opens hint 1 of this stage only
+PASS T2 stage 'used': hint 3 asks again in a new stage
+PASS T2 step 14: entering stage 'open' shows its guide, not hint 0
+PASS T2 stage 'open': one H opens hint 1 of this stage only
+PASS T2 stage 'open': hint 3 asks again in a new stage
+PASS T2 step 16: entering stage 'out' shows its guide, not hint 0
+PASS T2 stage 'out': one H opens hint 1 of this stage only
+PASS T2 stage 'out': hint 3 asks again in a new stage
+PASS T2 step 21: entering stage 'carry' shows its guide, not hint 0
+PASS T2 stage 'carry': one H opens hint 1 of this stage only
+PASS T2 stage 'carry': hint 3 asks again in a new stage
+PASS T2: the walk passed through ["", "used_a", "used", "open", "out", "carry"]
+PASS T2 restart from a later stage: the start guide, no hint open
+PASS T2: a hint already opened in this stage is re-shown without asking again (H x3 -> hint 3)
+PASS T2: the decisive mistake is dead and the hint button is off
+PASS T2: H while dead opens nothing
+PASS T2 B: back in stage '', hint level 1 (was 1), text matches the stage
+PASS T2 undo twice: the text matches stage '' at hint level 1
+PASS T2b start: the start guide
+PASS T2b start: H, H -> hint 2 of the start stage
+PASS T2b: the third H only warns
+PASS T2b: the fourth H shows hint 3
+PASS T2b step 1: a move inside the stage keeps the open hint
+PASS T2b step 2: a move inside the stage keeps the open hint
+PASS T2b step 3: entering stage 'used_a' shows its guide, not hint 3
+PASS T2b stage 'used_a': one H opens hint 1 of this stage only
+PASS T2b stage 'used_a': hint 3 asks again in a new stage
+PASS T2b step 8: entering stage 'used' shows its guide, not hint 0
+PASS T2b stage 'used': one H opens hint 1 of this stage only
+PASS T2b stage 'used': hint 3 asks again in a new stage
+PASS T2b step 14: entering stage 'open' shows its guide, not hint 0
+PASS T2b stage 'open': one H opens hint 1 of this stage only
+PASS T2b stage 'open': hint 3 asks again in a new stage
+PASS T2b step 18: entering stage 'out' shows its guide, not hint 0
+PASS T2b stage 'out': one H opens hint 1 of this stage only
+PASS T2b stage 'out': hint 3 asks again in a new stage
+PASS T2b step 23: entering stage 'carry' shows its guide, not hint 0
+PASS T2b stage 'carry': one H opens hint 1 of this stage only
+PASS T2b stage 'carry': hint 3 asks again in a new stage
+PASS T2b: the walk passed through ["", "used_a", "used", "open", "out", "carry"]
+PASS T2b restart from a later stage: the start guide, no hint open
+PASS T2b: a hint already opened in this stage is re-shown without asking again (H x3 -> hint 3)
+PASS T2b: the decisive mistake is dead and the hint button is off
+PASS T2b: H while dead opens nothing
+PASS T2b B: back in stage '', hint level 1 (was 1), text matches the stage
+PASS T2b undo twice: the text matches stage '' at hint level 1
+PASS T3 start: the start guide
+PASS T3 start: H, H -> hint 2 of the start stage
+PASS T3: the third H only warns
+PASS T3: the fourth H shows hint 3
+PASS T3 step 1: a move inside the stage keeps the open hint
+PASS T3 step 2: a move inside the stage keeps the open hint
+PASS T3 step 3: a move inside the stage keeps the open hint
+PASS T3 step 4: a move inside the stage keeps the open hint
+PASS T3 step 5: a move inside the stage keeps the open hint
+PASS T3 step 6: entering stage 'used' shows its guide, not hint 3
+PASS T3 stage 'used': one H opens hint 1 of this stage only
+PASS T3 stage 'used': hint 3 asks again in a new stage
+PASS T3 step 7: entering stage 'open' shows its guide, not hint 0
+PASS T3 stage 'open': one H opens hint 1 of this stage only
+PASS T3 stage 'open': hint 3 asks again in a new stage
+PASS T3 step 21: entering stage 'top' shows its guide, not hint 0
+PASS T3 stage 'top': one H opens hint 1 of this stage only
+PASS T3 stage 'top': hint 3 asks again in a new stage
+PASS T3: the walk passed through ["", "used", "open", "top"]
+PASS T3 restart from a later stage: the start guide, no hint open
+PASS T3: a hint already opened in this stage is re-shown without asking again (H x3 -> hint 3)
+PASS T3: the decisive mistake is dead and the hint button is off
+PASS T3: H while dead opens nothing
+PASS T3 B: back in stage '', hint level 0 (was 1), text matches the stage
+PASS T3 undo twice: the text matches stage '' at hint level 0
+PASS C1 start: the start guide
+PASS C1 start: H, H -> hint 2 of the start stage
+PASS C1: the third H only warns
+PASS C1: the fourth H shows hint 3
+PASS C1 step 1: a move inside the stage keeps the open hint
+PASS C1 step 2: a move inside the stage keeps the open hint
+PASS C1 step 3: a move inside the stage keeps the open hint
+PASS C1 step 4: a move inside the stage keeps the open hint
+PASS C1 step 5: a move inside the stage keeps the open hint
+PASS C1 step 6: a move inside the stage keeps the open hint
+PASS C1 step 7: entering stage 'pulled' shows its guide, not hint 3
+PASS C1 stage 'pulled': one H opens hint 1 of this stage only
+PASS C1 stage 'pulled': hint 3 asks again in a new stage
+PASS C1 step 10: entering stage 'last' shows its guide, not hint 0
+PASS C1 stage 'last': one H opens hint 1 of this stage only
+PASS C1 stage 'last': hint 3 asks again in a new stage
+PASS C1: the walk passed through ["", "pulled", "last"]
+PASS C1 restart from a later stage: the start guide, no hint open
+PASS C1: a hint already opened in this stage is re-shown without asking again (H x3 -> hint 3)
+PASS C1: the decisive mistake is dead and the hint button is off
+PASS C1: H while dead opens nothing
+PASS C1 B: back in stage 'pulled', hint level 0 (was 1), text matches the stage
+PASS C1 undo twice: the text matches stage 'pulled' at hint level 0
+PASS T2: 600 random moves / H / Z / B / R: panel always matches the stage, no level opened or consumed unasked []
+PASS T2b: 600 random moves / H / Z / B / R: panel always matches the stage, no level opened or consumed unasked []
+PASS T3: 600 random moves / H / Z / B / R: panel always matches the stage, no level opened or consumed unasked []
+PASS C1: 600 random moves / H / Z / B / R: panel always matches the stage, no level opened or consumed unasked []
+LAB4 TESTS: 173 checks, 0 failures
+LAB4 SUITE PASSED
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS setup: records 1=3 and 12=8 saved normally
+PASS [write_new] after the interrupted replace: no progress.cfg, .bak = old records, verified .new holds 13=35
+PASS [write_new] the recovery fails and says new results will wait
+PASS [write_new] after the failed recovery: .bak byte-identical, .new + .new.ok intact (progress.cfg.bak, progress.cfg.new, progress.cfg.new.ok)
+PASS [write_new] a new result while the fault is still there is refused (not taken for a first save)
+PASS [write_new] ... and the refusal touched nothing
+PASS [write_new] retry after the fault is gone: 1=3, 12=8 and 13=35 all in progress.cfg, nothing pending (progress.cfg, progress.cfg.bak)
+PASS [write_new] and the next result is added normally
+PASS setup: records 1=3 and 12=8 saved normally
+PASS [partial_new] after the interrupted replace: no progress.cfg, .bak = old records, verified .new holds 13=35
+PASS [partial_new] the recovery fails and says new results will wait
+PASS [partial_new] after the failed recovery: .bak byte-identical, .new + .new.ok intact (progress.cfg.bak, progress.cfg.new, progress.cfg.new.ok)
+PASS [partial_new] a new result while the fault is still there is refused (not taken for a first save)
+PASS [partial_new] ... and the refusal touched nothing
+PASS [partial_new] restart after the fault is gone: all three records back, the player is told (上次保存在中途被打断，已经补完通关记录。)
+PASS setup: records 1=3 and 12=8 saved normally
+PASS [verify_new] after the interrupted replace: no progress.cfg, .bak = old records, verified .new holds 13=35
+PASS [verify_new] the recovery fails and says new results will wait
+PASS [verify_new] after the failed recovery: .bak byte-identical, .new + .new.ok intact (progress.cfg.bak, progress.cfg.new, progress.cfg.new.ok)
+PASS [verify_new] a new result while the fault is still there is refused (not taken for a first save)
+PASS [verify_new] ... and the refusal touched nothing
+PASS [verify_new] retry after the fault is gone: 1=3, 12=8 and 13=35 all in progress.cfg, nothing pending (progress.cfg, progress.cfg.bak)
+PASS [verify_new] and the next result is added normally
+PASS setup: records 1=3 and 12=8 saved normally
+PASS [mark] after the interrupted replace: no progress.cfg, .bak = old records, verified .new holds 13=35
+PASS [mark] the recovery fails and says new results will wait
+PASS [mark] after the failed recovery: .bak byte-identical, .new + .new.ok intact (progress.cfg.bak, progress.cfg.new, progress.cfg.new.ok)
+PASS [mark] a new result while the fault is still there is refused (not taken for a first save)
+PASS [mark] ... and the refusal touched nothing
+PASS [mark] restart after the fault is gone: all three records back, the player is told (上次保存在中途被打断，已经补完通关记录。)
+PASS setup: records 1=3 and 12=8 saved normally
+PASS [replace] after the interrupted replace: no progress.cfg, .bak = old records, verified .new holds 13=35
+PASS [replace] the recovery fails and says new results will wait
+PASS [replace] after the failed recovery: .bak byte-identical, .new + .new.ok intact (progress.cfg.bak, progress.cfg.new, progress.cfg.new.ok)
+PASS [replace] a new result while the fault is still there is refused (not taken for a first save)
+PASS [replace] ... and the refusal touched nothing
+PASS [replace] retry after the fault is gone: 1=3, 12=8 and 13=35 all in progress.cfg, nothing pending (progress.cfg, progress.cfg.bak)
+PASS [replace] and the next result is added normally
+PASS setup: records 1=3 and 12=8 saved normally
+PASS recovery killed after writing its own temporary file: both pairs verified, nothing deleted
+PASS killed again: a third pair, the earlier ones untouched (progress.cfg.bak, progress.cfg.new, progress.cfg.new.ok, progress.cfg.rec, progress.cfg.rec.ok, progress.cfg.rec2, progress.cfg.rec2.ok)
+PASS next start: everything merged once, all temporary files gone (progress.cfg, progress.cfg.bak)
+PASS recovery cut in half by a Windows-like replace: no progress.cfg, .bak = old, the original .new still there
+PASS the next save first finishes the recovery, then adds its own result
+PASS setup: records 1=3 and 12=8 saved normally
+PASS a win while the recovery keeps failing: 'not saved, the earlier save is not restored yet', Y offered
+PASS that text fits (25 px)
+PASS Y after the fault is gone: the earlier records and 13=35 are back, 12=8 kept
+PASS an existing 0-byte file is damaged; a missing file is not
+PASS empty file: no write, it stays 0 bytes, the valid .bak is not overwritten by it
+PASS next start: the empty file is kept as .corrupt (evidence)
+PASS ... and the backup is restored; the text says so without claiming the file went missing (通关记录文件是空的（0 字节），无法读取。 | 原文件已另存为 progress.cfg.corrupt， | 已经从备份 progress.cfg.bak 恢复。 | 最后一次通关的成绩可能不在里面。)
+PASS after that a new result is added to the restored records
+PASS restore fails: .bak untouched, the pending restore is remembered (progress.cfg.bak, progress.cfg.corrupt, progress.cfg.restore)
+PASS the next save restores the backup first, then adds 13=35
+PASS empty file, no backup: set aside, 'starting over' (通关记录文件是空的（0 字节），无法读取。 | 原文件已另存为 progress.cfg.corrupt，记录将从头开始。)
+PASS then the first result is saved normally
+PASS a file with only blank lines is damaged as well
+PASS first start without any file: no message, nothing created
+PASS first save creates progress.cfg only
+PASS progress.cfg deleted on purpose: no message, not resurrected from .bak
+PASS a file written by ConfigFile.save (old versions) is read as is, untouched at start
+PASS a new result keeps the old ones; the old file is the backup
+PASS Windows line endings are fine
+PASS a section with no records yet is not damaged
+LAB5 TESTS: 65 checks, 0 failures
+LAB5 SUITE PASSED
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+PASS marker cannot be written: the backup is restored anyway, and the player is told about the marker (通关记录文件是空的（0 字节），无法读取。 | 原文件已另存为 progress.cfg.corrupt， | 已经从备份 progress.cfg.bak 恢复。 | 最后一次通关的成绩可能不在里面。 | 注意：恢复标记 progress.cfg.restore 无法写入，请检查存档文件夹。)
+PASS the 0-byte file is kept as .corrupt, .bak unchanged, nothing pending
+PASS after removing the folder: saving 13=35 keeps 1=3 and 12=8; .bak is the previous record
+PASS [same run, fault cleared] marker and restore both fail: an explicit error, no success claimed
+PASS [same run, fault cleared] no progress.cfg, .bak byte-identical, .corrupt kept, the restore counts as pending (progress.cfg.bak, progress.cfg.corrupt)
+PASS [same run, fault cleared] save attempt 1 while the fault lasts is refused
+PASS [same run, fault cleared] save attempt 2 while the fault lasts is refused
+PASS [same run, fault cleared] save attempt 3 while the fault lasts is refused
+PASS [same run, fault cleared] a start during the fault changes nothing and says so
+PASS [same run, fault cleared] the next save restores the backup first, then adds 13=35
+PASS [restart, fault cleared] marker and restore both fail: an explicit error, no success claimed
+PASS [restart, fault cleared] no progress.cfg, .bak byte-identical, .corrupt kept, the restore counts as pending (progress.cfg.bak, progress.cfg.corrupt)
+PASS [restart, fault cleared] save attempt 1 while the fault lasts is refused
+PASS [restart, fault cleared] save attempt 2 while the fault lasts is refused
+PASS [restart, fault cleared] save attempt 3 while the fault lasts is refused
+PASS [restart, fault cleared] a start during the fault changes nothing and says so
+PASS [restart, fault cleared] after a restart the pending restore is still recognised from the files alone
+PASS [restart, fault cleared] the start restores the backup (已经从备份 progress.cfg.bak 恢复。 | 最后一次通关的成绩可能不在里面。)
+PASS [restart, fault cleared] then 13=35 is added; .bak holds the previous record
+PASS [restart, fault still there] marker and restore both fail: an explicit error, no success claimed
+PASS [restart, fault still there] no progress.cfg, .bak byte-identical, .corrupt kept, the restore counts as pending (progress.cfg.bak, progress.cfg.corrupt)
+PASS [restart, fault still there] save attempt 1 while the fault lasts is refused
+PASS [restart, fault still there] save attempt 2 while the fault lasts is refused
+PASS [restart, fault still there] save attempt 3 while the fault lasts is refused
+PASS [restart, fault still there] a start during the fault changes nothing and says so
+PASS [restart, fault still there] still refused after the restart, data untouched
+PASS [restart, fault still there] once the fault is gone the next start restores
+PASS no backup: set aside, 'starting over', nothing pending (通关记录文件是空的（0 字节），无法读取。 | 原文件已另存为 progress.cfg.corrupt，记录将从头开始。)
+PASS no backup: the first result is saved normally
+PASS an unreadable .bak is not used and not overwritten
+PASS first start without files (marker folder present): no message, first save normal
+PASS progress.cfg deleted on purpose after a later save: the old .corrupt does not trigger a restore
+PASS setup: records 1=3 and 12=8 saved normally
+PASS Lab 5 probe 1 (interrupted replace, failed recovery, retry): 1, 12 and 13 all kept
+PASS Lab 5 probe 2 (empty progress.cfg, valid .bak): restored from the backup
+LAB6 TESTS: 35 checks, 0 failures
+LAB6 SUITE PASSED
 demo_1.json solution=RRR visited=25
+demo_10.json solution=DURRDDLrUULLDDRRURD visited=2541
+  Without pull: no solution after exhausting 864 states
+demo_11.json solution=RURRDLDDLLRRRUULULLDRURDUlDRRUL visited=3735
+  Without pull: no solution after exhausting 1023 states
+demo_12.json solution=RRRDDLLr visited=14
+demo_13.json solution=DDuRDDLURULDLUDuRDDLURUULLDRURDLDRR visited=507
+demo_14.json solution=DDLLLrULLDRURuRRDDLLUDRRUULr visited=1309
+demo_15.json solution=LDRRDRdLURLULLDDRR visited=1112
+demo_16.json solution=DDuRDDLURULDLURDDrULLDRR visited=341
 demo_2.json solution=RRRLLLDRRR visited=1529
 demo_3.json solution=LLURDRURLU visited=569
 demo_4.json solution=r visited=11
@@ -460,8 +1377,14 @@ demo_6.json solution=LRRRUULLLDLDUd visited=632
   Without pull: no solution after exhausting 363 states
 demo_7.json solution=URDRDRDLLUULUlDRRUL visited=686
   Without pull: no solution after exhausting 182 states
+demo_8.json solution=RUULLRRDDLLLUd visited=77
+  Without pull: no solution after exhausting 40 states
+demo_9.json solution=UDLLUURlDDRRUULLDLU visited=622
+  Without pull: no solution after exhausting 138 states
 user_custom_level.json solution=None visited=1332
 user_custom_level_2.json solution=None visited=31
-All 7 curated demo levels are solvable.
+All 11 curated demo levels are solvable.
 A/B optimal lengths and tempting first-pull deadlocks verified.
-All 281 assertions passed with isolated save directories and clean resource import.
+Lab maps verified (optimum, no bypass): {12: 8, 13: 35, 14: 28, 15: 18, 16: 24}
+All 1076 assertions across 38 suites passed with isolated save directories and clean resource import.
+exit 0

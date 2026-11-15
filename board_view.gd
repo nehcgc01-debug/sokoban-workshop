@@ -7,8 +7,16 @@ const TEAL = Color("57e0c0")
 const GOLD = Color("f3bc66")
 const TEXT = Color("f2dfbd")
 const MUTED = Color("9bafc2")
+const TOOL = Color("ef7a6c")   # Lab: tool crate ribbon / tool-related accents
 
 static var _textures: Dictionary = {}
+
+## Lab 2: text drawn by hand (meter, tags, rest corner) must use the bundled CJK font.
+## ThemeDB.fallback_font has no Chinese glyphs on the Web build (it only looked right on desktop,
+## where the system supplies them), so "牵引" showed as an empty box there.
+static func ui_font() -> Font:
+	var theme = ThemeDB.get_project_theme()
+	return theme.default_font if theme != null and theme.default_font != null else ThemeDB.fallback_font
 
 static func _texture(name: String) -> Texture2D:
 	if not _textures.has(name):
@@ -18,6 +26,11 @@ static func _texture(name: String) -> Texture2D:
 		_textures[name] = load(path) if ResourceLoader.exists(path) else null
 	return _textures[name] as Texture2D
 
+
+static func _cell(point: Variant) -> Vector2i:
+	if point is Array and point.size() == 2:
+		return Vector2i(int(point[0]), int(point[1]))
+	return Vector2i(-1, -1)
 
 static func _cells(points: Array) -> Dictionary:
 	var result = {}
@@ -38,6 +51,8 @@ static func draw_board(canvas: Node2D, data: Dictionary, origin: Vector2, cell_s
 	var boxes = _cells(data.get("boxes", []))
 	var p = data.get("player", [-1, -1])
 	var player = Vector2i(int(p[0]), int(p[1]))
+	var tool = _cell(data.get("tool", null))
+	var bench = _cell(data.get("bench", null))
 	_rounded(canvas, Rect2(origin - Vector2(12, 12), Vector2(cell_size * 7 + 24, cell_size * 6 + 24)), Color("443829"), 14)
 	for y in range(6):
 		for x in range(7):
@@ -59,6 +74,15 @@ static func draw_board(canvas: Node2D, data: Dictionary, origin: Vector2, cell_s
 				canvas.draw_circle(center, 4, GOLD)
 				if _texture("goal") != null:
 					canvas.draw_texture_rect(_texture("goal"), rect.grow(-3), false)
+	# Lab: the bench is part of the floor (walkable); after opening it shows the empty crate.
+	if bench.x >= 0:
+		var brect = Rect2(origin + Vector2(bench) * cell_size, Vector2.ONE * cell_size).grow(-4)
+		var used: bool = data.get("bench_used", false)
+		var bt = _texture("bench_used" if used else "bench")
+		if bt != null:
+			canvas.draw_texture_rect(bt, brect, false)
+		else:
+			_rounded(canvas, brect.grow(-8), Color("a8774b"), 6)
 	# Draw moving objects after the whole floor so interpolation is never covered by a later tile.
 	for cell in boxes:
 		var visual_cell: Vector2 = data.get("visual_boxes", {}).get(cell, Vector2(cell))
@@ -73,6 +97,14 @@ static func draw_board(canvas: Node2D, data: Dictionary, origin: Vector2, cell_s
 			canvas.draw_circle(badge, 9, TEAL)
 			canvas.draw_line(badge + Vector2(-4, 0), badge + Vector2(-1, 3), BG, 2, true)
 			canvas.draw_line(badge + Vector2(-1, 3), badge + Vector2(5, -4), BG, 2, true)
+	if tool.x >= 0:
+		var tv: Vector2 = data.get("visual_tool", Vector2(tool))
+		var trect = Rect2(origin + tv * cell_size, Vector2.ONE * cell_size).grow(-5)
+		var tt = _texture("toolbox")
+		if tt != null:
+			canvas.draw_texture_rect(tt, trect, false)
+		else:
+			_rounded(canvas, trect.grow(-7), TOOL, 6)
 	if player.x >= 0 and player.y >= 0:
 		_draw_player(canvas, data, origin, cell_size, player)
 	if selected.x >= 0 and selected.y >= 0:

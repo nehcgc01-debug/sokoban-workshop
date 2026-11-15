@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3]
+[gd_resource type="Theme" load_steps=11 format=3]
 [ext_resource type="FontFile" path="res://fonts/NotoSansCJK-Regular.ttc" id="1"]
 [sub_resource type="StyleBoxFlat" id="panel"]
 bg_color = Color(0.21, 0.19, 0.15, 1)
@@ -48,15 +48,87 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_left = 8
 corner_radius_bottom_right = 8
+[sub_resource type="StyleBoxFlat" id="focus"]
+content_margin_left = 18.0
+content_margin_right = 18.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.24, 0.31, 0.25, 1)
+border_width_left = 3
+border_width_right = 3
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color(0.95, 0.79, 0.45, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_left = 8
+corner_radius_bottom_right = 8
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+[sub_resource type="StyleBoxFlat" id="hover_soft"]
+content_margin_left = 18.0
+content_margin_right = 18.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.31, 0.39, 0.30, 1)
+border_width_bottom = 4
+border_color = Color(0.12, 0.21, 0.17, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_left = 8
+corner_radius_bottom_right = 8
+[sub_resource type="StyleBoxFlat" id="window"]
+bg_color = Color(0.21, 0.19, 0.15, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_top = 34
+border_width_bottom = 2
+border_color = Color(0.36, 0.30, 0.20, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_left = 12
+corner_radius_bottom_right = 12
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 34.0
+expand_margin_bottom = 2.0
+[sub_resource type="StyleBoxFlat" id="lineedit"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.93, 0.88, 0.76, 1)
+border_width_bottom = 2
+border_color = Color(0.55, 0.45, 0.28, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+[sub_resource type="StyleBoxFlat" id="dialogpanel"]
+content_margin_left = 18.0
+content_margin_right = 18.0
+content_margin_top = 14.0
+content_margin_bottom = 12.0
+bg_color = Color(0.21, 0.19, 0.15, 1)
 [resource]
 default_font = ExtResource("1")
 default_font_size = 20
 PanelContainer/styles/panel = SubResource("panel")
 PopupPanel/styles/panel = SubResource("panel")
 Button/styles/normal = SubResource("normal")
-Button/styles/hover = SubResource("hover")
+Button/styles/hover = SubResource("hover_soft")
 Button/styles/pressed = SubResource("hover")
-Button/styles/focus = SubResource("hover")
+Button/styles/focus = SubResource("focus")
 Button/styles/disabled = SubResource("disabled")
 Button/colors/font_color = Color(0.96, 0.90, 0.76, 1)
 Button/colors/font_disabled_color = Color(0.48, 0.46, 0.39, 1)
+AcceptDialog/styles/panel = SubResource("dialogpanel")
+Window/styles/embedded_border = SubResource("window")
+Window/styles/embedded_unfocused_border = SubResource("window")
+Window/colors/title_color = Color(0.96, 0.90, 0.76, 1)
+LineEdit/styles/normal = SubResource("lineedit")
+LineEdit/styles/focus = SubResource("lineedit")
+LineEdit/colors/font_color = Color(0.20, 0.16, 0.10, 1)
+LineEdit/colors/font_placeholder_color = Color(0.45, 0.38, 0.27, 1)
