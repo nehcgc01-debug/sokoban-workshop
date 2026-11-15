@@ -17,35 +17,38 @@ func key(code, shift=false):
  return e
 func run():
  var state = root.get_node("GameState")
- var routes = ["RRR", "RRRLLLDRRR", "LLURDRURLU", "r", "rDLLURURRRDDLLLULD", "LRRRUULLLDLDUd", "URDRDRDLLUULUlDRRUL"]
+ # V7.9: routes keyed by stable level id; play order comes from the catalog (8 sits between 5 and 6).
+ var Catalog = load("res://level_catalog.gd")
+ var routes = {1:"RRR", 2:"RRRLLLDRRR", 3:"LLURDRURLU", 4:"r", 5:"rDLLURURRRDDLLLULD", 8:"RUULLRRDDLLLUd", 6:"LRRRUULLLDLDUd", 7:"URDRDRDLLUULUlDRRUL", 9:"UDLLUURlDDRRUULLDLU", 10:"DURRDDLrUULLDDRRURD", 11:"RURRDLDDLLRRRUULULLDRURDUlDRRUL"}
  # Simulate an existing V7.2 record; do not renumber or clear it.
  check(Progress.record(5,18) == OK, "old level5 record writes")
  state.selected_builtin = 1
  change_scene_to_file("res://game.tscn")
  await process_frame
  await process_frame
- for i in range(7):
+ for i in Catalog.ORDER.size():
+  var id = Catalog.ORDER[i]
   var game = current_scene
-  check(state.selected_builtin == i+1, "keyboard chain reaches level%d" % (i+1))
-  for c in routes[i]:
+  check(state.selected_builtin == id, "keyboard chain reaches position %d (id %d)" % [i+1, id])
+  for c in routes[id]:
    var code = {"R":KEY_RIGHT,"L":KEY_LEFT,"U":KEY_UP,"D":KEY_DOWN}[c.to_upper()]
    game._input(key(code,c == c.to_lower()))
-  check(game.level_complete and game.moves == routes[i].length(), "actual gameplay solves level%d at optimum" % (i+1))
-  if i>=5:
+  check(game.level_complete and game.moves == routes[id].length() and routes[id].length() == Catalog.optimal(id), "actual gameplay solves id %d at catalog optimum" % id)
+  if id >= 6:
    game.undo_move()
    check(not game.level_complete, "new level undo exits victory")
-   var last = routes[i][-1]
+   var last = routes[id][-1]
    game._input(key({"R":KEY_RIGHT,"L":KEY_LEFT,"U":KEY_UP,"D":KEY_DOWN}[last.to_upper()],last==last.to_lower()))
    check(game.level_complete, "new level final move reproducible")
   game._unhandled_input(key(KEY_ENTER))
   await process_frame
   await process_frame
- check(current_scene.has_method("_show_levels"), "level7 Enter returns menu")
+ check(current_scene.has_method("_show_levels"), "last level Enter returns menu")
  check(Progress.best_moves(5)==18, "existing level5 best preserved")
  check(Progress.best_moves(6)==14 and Progress.best_moves(7)==19, "new records saved separately")
  current_scene._show_levels()
  await process_frame
- check(current_scene.builtin_buttons.size()==7, "all seven selector buttons exist")
+ check(current_scene.builtin_buttons.size()==Catalog.COUNT, "a selector button for every level")
  var inside = true
  for b in current_scene.builtin_buttons:
   inside = inside and current_scene.selector.get_global_rect().encloses(b.get_global_rect())

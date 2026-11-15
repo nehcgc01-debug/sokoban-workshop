@@ -34,12 +34,12 @@ func run() -> void:
  await process_frame
  state.editor_snapshot = {}
  state.preview_data = {}
- state.selected_builtin = 7
+ state.selected_builtin = 11  # V7.9: last level in play order
  var game = load("res://game.tscn").instantiate()
  root.add_child(game)
  await process_frame
  check(not game._play_hint().contains("墙边") and game._play_hint().contains("观察"), "final puzzle offers rules not specific box solution")
- for c in "URDRDRDLLUULUlDRRUL":
+ for c in "RURRDLDDLLRRRUULULLDRURDUlDRRUL":
   var direction = {"l":Vector2i.LEFT,"R":Vector2i.RIGHT,"L":Vector2i.LEFT,"U":Vector2i.UP,"D":Vector2i.DOWN}[c]
   game.try_move(direction, c == "l")
  check(game.level_complete and game.status_label.text.contains("最后一关完成"), "final level has clear ending")

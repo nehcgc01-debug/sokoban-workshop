@@ -69,9 +69,8 @@ func run_tests() -> void:
 	await process_frame
 	check(saved == editor._serialize() and editor.dirty, "snapshot restores draft and dirty flag")
 	editor._request_back()
-	check(editor.discard_dialog.visible, "back protects unsaved draft")
-	editor.discard_dialog.hide()
-	editor._discard_canceled()
+	check(editor.leave_dialog.visible, "back protects unsaved draft")  # V7.12: keep / discard / cancel
+	editor.leave_dialog.hide()
 	await process_frame
 	check(editor.dirty, "back cancellation retains changes")
 	print("EDITOR TESTS PASSED: ", checks)

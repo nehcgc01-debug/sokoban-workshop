@@ -14,7 +14,7 @@ func run() -> void:
 	var basic = {"walls":[],"goals":[[5,2]],"boxes":[[1,2]],"player":[2,2]}
 	check(Store.validate(basic).is_empty(), "old schema accepted")
 	check(Store.normalize(basic).pull_charges == 0, "old maps default no pull")
-	for bad in [-1,2,0.5,"1",true,null]:
+	for bad in [-1,3,0.5,"1",true,null]:  # Lab: 2 starting pulls are now valid (tool crate maps); 3 is not
 		var data = basic.duplicate(true)
 		data.pull_charges = bad
 		check(not Store.validate(data).is_empty(), "bad charge rejected: " + str(bad))

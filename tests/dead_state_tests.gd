@@ -17,7 +17,7 @@ func check(ok, message):
 
 func run():
 	var fixture: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/dead_state_fixture.json"))
-	for i in range(1, Catalog.COUNT + 1):
+	for i in Catalog.ORDER:
 		var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://levels/demo_%d.json" % i))
 		var walls = {}
 		var goals = {}
@@ -40,7 +40,11 @@ func run():
 			"map %d: %d states, 0 false alarms, 0 missed dead states, 0 unknown (%.0f ms total)" % [i, fixture[str(i)].size(), ms])
 	check(root.get_node("GameState").ui_font_face == "Noto Sans CJK SC", "V7.8: UI font uses the Simplified Chinese face of the bundled TTC (got %s)" % root.get_node("GameState").ui_font_face)
 	check(ThemeDB.get_project_theme().default_font is FontVariation and ThemeDB.get_project_theme().default_font.variation_face_index == 2, "V7.8: project theme font selects TTC face 2")
-	check(Catalog.OPTIMAL.size() == Catalog.COUNT and Catalog.ORDERS.size() == Catalog.COUNT, "catalog has optimal steps and a work order for every map")
+	# Lab: the catalog also holds the lab maps, which have their own order (Catalog.LAB_ORDER).
+	var listed = Catalog.ORDER + Catalog.LAB_ORDER + Catalog.LAB_EXTRA
+	var unique = {}
+	for id in listed: unique[id] = true
+	check(Catalog.LEVELS.size() == listed.size() and unique.size() == listed.size() and Catalog.COUNT == Catalog.ORDER.size(), "every catalog level appears exactly once in play order")
 
 	var state = root.get_node("GameState")
 	state.preview_data = {}
@@ -49,8 +53,8 @@ func run():
 	await process_frame
 	await process_frame
 	var game = current_scene
-	check(game.order_label.text.begins_with("工单 06"), "map 6 shows its work order")
-	check(game.title_label.text.contains("6") and game.title_label.text.contains("挑战篇"), "title keeps number and chapter")
+	check(game.order_label.text.contains("两处光圈") and game.order_label.text.begins_with("工单 %02d" % Catalog.position(6)), "map 6 shows its work order with its play position")
+	check(game.title_label.text.contains("第 %d 关" % Catalog.position(6)) and game.title_label.text.contains("挑战篇"), "title shows play position and chapter")
 	game.try_move(Vector2i.RIGHT, true)
 	check(game.pull_charges == 0 and game.dead_rewind_steps == 1 and game.status_label.text.contains("无解"), "habitual first pull on map 6 is reported dead immediately")
 	check(game.hint_button.disabled, "hint is paused while the board is dead")
@@ -81,7 +85,7 @@ func run():
 	await process_frame
 	await process_frame
 	game = current_scene
-	check(game.headline_label.text == "推箱工坊 / PLAY" and game.order_label.text.begins_with("工单 01"), "intro chapter keeps the day headline")
+	check(game.headline_label.text == "推箱工坊 · 今晚的工单" and game.order_label.text.begins_with("工单 01"), "intro chapter keeps the day headline")
 	for c in "DRU":
 		game.try_move({"R": Vector2i.RIGHT, "L": Vector2i.LEFT, "U": Vector2i.UP, "D": Vector2i.DOWN}[c])
 	check(game.status_label.text.contains("无解") and game.dead_rewind_steps == 1, "box pushed against the far wall on map 1 is reported dead (corner check missed this)")

@@ -56,9 +56,9 @@ func run_tests() -> void:
 	await process_frame
 	await process_frame
 	check(root.get_node("GameState").selected_builtin == 2, "focused Continue activates through native Space input")
-	await open_builtin(7)
+	await open_builtin(11)  # V7.9: last level in play order
 	game = current_scene
-	for step in "URDRDRDLLUULUlDRRUL":
+	for step in "RURRDLDDLLRRRUULULLDRURDUlDRRUL":
 		var direction = {"l":Vector2i.LEFT,"R":Vector2i.RIGHT,"L":Vector2i.LEFT,"U":Vector2i.UP,"D":Vector2i.DOWN}[step]
 		game.try_move(direction, step == "l")
 	check(game.level_complete and game.next_button.visible and not game.return_button.visible, "last-level victory has only one menu-return button")

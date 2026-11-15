@@ -12,14 +12,14 @@ func event(code):
  var e=InputEventKey.new();e.keycode=code;e.pressed=true;return e
 func run():
  var state=root.get_node("GameState")
- state.selected_builtin=7
+ state.selected_builtin=11 # V7.9: last level in play order
  change_scene_to_file("res://game.tscn")
  await process_frame;await process_frame
  var game=current_scene
  check(not game.editor_end_button.visible,"editor invitation hidden before victory")
  game._input(event(KEY_E))
  check(current_scene==game,"E cannot bypass incomplete puzzle")
- for c in "URDRDRDLLUULUlDRRUL":
+ for c in "RURRDLDDLLRRRUULULLDRURDUlDRRUL":
   game.try_move({"R":Vector2i.RIGHT,"L":Vector2i.LEFT,"U":Vector2i.UP,"D":Vector2i.DOWN}[c.to_upper()],c==c.to_lower())
  check(game.level_complete and game.editor_end_button.visible,"final win shows editor invitation")
  check(game.status_label.text.contains("灯火仍暖") and not game.status_label.text.contains("全部"),"ending warm but not falsely all-level completion")
