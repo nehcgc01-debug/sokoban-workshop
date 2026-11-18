@@ -20,6 +20,7 @@ def isolated_env(folder):
     for key, sub in [('XDG_CONFIG_HOME','config'),('XDG_CACHE_HOME','cache'),('XDG_DATA_HOME','data'),('APPDATA','appdata'),('LOCALAPPDATA','localappdata')]:
         env[key] = str(root/sub)
         (root/sub).mkdir(exist_ok=True)
+    env['KURO_EXPECTED_USER_DIR'] = str(root/'data'/'godot'/'app_userdata'/'Kuro_sukobann_menuwarm')
     return env
 
 def checked_run(command, env=None, marker=None):
@@ -50,10 +51,15 @@ suites = {
  'navigation':'NAVIGATION TESTS: 14/14', 'demo':'DEMO TESTS: 3/3',
  'product':'PRODUCT TESTS: 9', 'menu_focus':'MENU FOCUS TESTS: 10/10',
  'editor_pull':'EDITOR PULL TESTS PASSED: 6', 'pull':'PULL TESTS: 34/34',
- 'animation':'ANIMATION TESTS: 17/17', 'audio':'AUDIO TESTS: 16/16', 'modal_cancel':'MODAL CANCEL TESTS: 8/8', 'tutorial_state':'TUTORIAL STATE TESTS: 10/10', 'keyboard_progress':'KEYBOARD PROGRESS TESTS: 21/21', 'copy_review':'COPY REVIEW TESTS: 12/12', 'append_levels':'APPEND LEVELS TESTS: 40/40', 'guidance':'GUIDANCE TESTS: 21/21', 'feedback':'FEEDBACK TESTS: 8/8', 'workshop_ending':'WORKSHOP ENDING TESTS: 10/10', 'dead_state':'DEAD STATE SUITE PASSED', 'product_v79':'V79 PRODUCT SUITE PASSED', 'creator':'CREATOR SUITE PASSED', 'v710':'V710 SUITE PASSED', 'progress_order':'PROGRESS ORDER TESTS: 12/12', 'v711':'V711 SUITE PASSED', 'playtest':'PLAYTEST SUITE PASSED', 'close_draft':'CLOSE DRAFT TESTS: 21/21', 'draft_keep':'DRAFT KEEP SUITE PASSED', 'window':'WINDOW SUITE PASSED', 'v713':'V713 SUITE PASSED', 'v7131':'V7131 SUITE PASSED', 'lab_tool':'LAB TOOL SUITE PASSED', 'lab2':'LAB2 SUITE PASSED', 'lab3':'LAB3 SUITE PASSED', 'lab4':'LAB4 SUITE PASSED', 'lab5':'LAB5 SUITE PASSED', 'lab6':'LAB6 SUITE PASSED'
+ 'animation':'ANIMATION TESTS: 17/17', 'audio':'AUDIO TESTS: 16/16', 'modal_cancel':'MODAL CANCEL TESTS: 8/8', 'tutorial_state':'TUTORIAL STATE TESTS: 10/10', 'keyboard_progress':'KEYBOARD PROGRESS TESTS: 21/21', 'copy_review':'COPY REVIEW TESTS: 12/12', 'append_levels':'APPEND LEVELS TESTS: 40/40', 'guidance':'GUIDANCE TESTS: 21/21', 'feedback':'FEEDBACK TESTS: 8/8', 'workshop_ending':'WORKSHOP ENDING TESTS: 10/10', 'dead_state':'DEAD STATE SUITE PASSED', 'product_v79':'V79 PRODUCT SUITE PASSED', 'creator':'CREATOR SUITE PASSED', 'v710':'V710 SUITE PASSED', 'progress_order':'PROGRESS ORDER TESTS: 12/12', 'v711':'V711 SUITE PASSED', 'playtest':'PLAYTEST SUITE PASSED', 'close_draft':'CLOSE DRAFT TESTS: 21/21', 'draft_keep':'DRAFT KEEP SUITE PASSED', 'window':'WINDOW SUITE PASSED', 'v713':'V713 SUITE PASSED', 'v7131':'V7131 SUITE PASSED', 'lab_tool':'LAB TOOL SUITE PASSED', 'lab2':'LAB2 SUITE PASSED', 'lab3':'LAB3 SUITE PASSED', 'lab4':'LAB4 SUITE PASSED', 'lab5':'LAB5 SUITE PASSED', 'lab6':'LAB6 SUITE PASSED', 'music_preview':'MUSIC PREVIEW TESTS: 12/12', 'menuwarm':'MENUWARM SUITE PASSED', 'exit_guard_draft':'EXIT GUARD DRAFT TESTS: 10/10', 'exit_guard_menu':'EXIT GUARD MENU TESTS: 9/9', 'menuwarm_v31':'MENUWARM V3.1 TESTS: 31/31',
+ 'menuwarm_v32':'MENUWARM V3.2 TESTS: 59/59',
+ 'interaction_a':'INTERACTION A TESTS: 31/31',
+ 'interaction_b':'INTERACTION B TESTS: 69/69',
+ 'blind_prep':'BLIND PREP TESTS: 36/36',
+ 'post_submission_ending':'POST SUBMISSION ENDING TESTS: 33/33'
 }
 for suite, marker in suites.items():
     with tempfile.TemporaryDirectory(prefix='kuro_test_') as folder:
         checked_run([godot,'--headless','--path',str(project),'--script',f'res://tests/{suite}_tests.gd'],isolated_env(folder),marker)
 checked_run([sys.executable,str(project/'tests/solve_levels.py')], marker='All 11 curated demo levels are solvable.')
-print('All 1076 assertions across 38 suites passed with isolated save directories and clean resource import.')
+print(f'All {len(suites)} Godot suites and the curated-level solver passed with isolated save directories and clean resource import.')

@@ -23,7 +23,7 @@ const LEVELS = {
 		"hints": ["先给另一个箱子留出通道。", "先安排下方箱子，再考虑上方目标。", "上箱到顶行后，从左边试着拉。"]},
 	9: {"title": "让出一面", "chapter": "挑战篇", "optimal": 19, "order": "工单 · 有只箱子卡在窄槽里，它的另一面你够不着。",
 		"insight": "顿悟：够不着的一面，就拉过来。",
-		"hints": ["先想清楚哪只箱子先回家。", "有一面推不到的箱子，可以先拉出来。", "槽里箱子先上推一格；下箱进左下光圈后，从左边把槽箱拉出来。"]},
+		"hints": ["观察窄槽里的箱子：你能站到它的左右两侧吗？", "有一面推不到的箱子，可以先拉出来。", "槽里箱子先上推一格；下箱进左下光圈后，从左边把槽箱拉出来。"]},
 	10: {"title": "三箱归位", "chapter": "挑战篇", "optimal": 19, "order": "工单 · 三只箱子挤在墙角，先救哪一只？",
 		"insight": "顿悟：拉回中间，就又能推了。",
 		"hints": ["三只箱子里，有一只迟早会被推到左墙边。", "贴着左墙的箱子，可以用牵引拉回中间。", "先送好上、中两只，再把左墙边那只拉回中间，绕到左边往右推。"]},
@@ -88,7 +88,7 @@ const LEVELS = {
 		"thanks": "阿婆：水开了，给你留了一杯。"},
 	15: {"title": "推不下去", "code": "C1", "chapter": "对照 · 实验", "optimal": 18,
 		"order": "工单 · 没有工具箱。上面那只箱子没卡住，却推不下去。",
-		"guide": "对照关，没有新规则。\n上面那只箱子要去哪一行？",
+		"guide": "这一单没有新规则。\n上面那只箱子要去哪一行？",
 		"insight": "顿悟：没卡住，也可能要拉。",
 		"hints": ["上面那只箱子要往下走一行，才能去右边的光圈。", "这一行站不到它上方：缺口只能从箱子那格进去。", "先把它推到右边缺口的正下方，再站到它下面往下拉。"],
 		"stages": [
@@ -107,8 +107,10 @@ const LEVELS = {
 		"thanks": "小满：它睡着了。走路轻一点。"},
 	# Lab 2: a shorter candidate for T2 (only the goal moved). Same first decision, 24 moves instead
 	# of 35. It sits beside T2 for comparison; it is not part of the T1 -> C1 chain and has no fixture.
-	16: {"title": "短程对照", "code": "T2b", "chapter": "工具篇 · 实验", "optimal": 24,
-		"order": "工单 · T2 的短程对照版：同一个决定，光圈近了一些。",
+	# Flow pass B: display title/order reworded for players ("短程对照" / "T2 的短程对照版" were
+	# developer terms). The id, code "T2b", file, order and save key are unchanged.
+	16: {"title": "抄近路", "code": "T2b", "chapter": "工具篇 · 实验", "optimal": 24,
+		"order": "工单 · 和「绳子在箱里」同一间屋，只是光圈近了一些。",
 		"guide": "牵引 1 次，箱里还有 1 次。\n工具箱也能推、也能拉。\n每次牵引花在谁身上？",
 		"insight": "顿悟：先拉工具箱，它会还你一次。",
 		"hints": ["货箱在墙角，需要一次牵引；工具箱推不上工作台，也需要一次。", "工具箱贴着货箱和下墙，只有先拉出来才推得动。", "先在工具箱上方往上拉，再推上工作台；最后把墙角的货箱拉出来。"],
@@ -156,8 +158,25 @@ static func position(id: int) -> int:
 static func code(id: int) -> String:
 	return String(LEVELS[id]["code"]) if is_lab(id) else "%02d" % position(id)
 
+## Flow pass B: what players read. The night's 11 maps are "工单 01–11"; the four requests from
+## the rest nook are "休息角委托 1–4"; the optional extra map is a "加班单". Internal codes (T1, C1,
+## T2b), ids, paths, order and save keys stay as they are — code() still returns them for logs/tests.
+const EXTRA_NAME = "休息角委托"
+const OVERTIME_NAME = "加班单"
+
+static func card_code(id: int) -> String:
+	if LAB_EXTRA.has(id):
+		return "加班"
+	if LAB_ORDER.has(id):
+		return "委托%d" % (LAB_ORDER.find(id) + 1)
+	return code(id)
+
 static func level_title(id: int) -> String:
-	return ("实验 %s · %s" % [code(id), LEVELS[id]["title"]]) if is_lab(id) else ("第 %d 关 · %s" % [position(id), LEVELS[id]["title"]])
+	if LAB_EXTRA.has(id):
+		return "%s · %s" % [OVERTIME_NAME, LEVELS[id]["title"]]
+	if LAB_ORDER.has(id):
+		return "%s %d · %s" % [EXTRA_NAME, LAB_ORDER.find(id) + 1, LEVELS[id]["title"]]
+	return "第 %d 关 · %s" % [position(id), LEVELS[id]["title"]]
 
 static func next_id(id: int) -> int:
 	if LAB_EXTRA.has(id):
@@ -244,7 +263,7 @@ static func is_last(id: int) -> bool:
 	return id == last_id()
 
 static func display_name(id: int) -> String:
-	return "%s  %s" % [code(id), LEVELS[id]["title"]]
+	return "%s  %s" % [card_code(id), LEVELS[id]["title"]]
 
 static func chapter(id: int) -> String:
 	return LEVELS[id]["chapter"] if LEVELS.has(id) else ""
@@ -253,11 +272,12 @@ static func optimal(id: int) -> int:
 	return int(LEVELS[id]["optimal"])
 
 static func order_text(id: int) -> String:
-	# Lab 3: lab maps say "实验委托", so they are never read as part of the 11 main-line orders.
+	# Lab 3: lab maps never say "工单 NN", so they are not read as part of the 11 main-line orders.
+	# Flow pass B: "委托 · <who asks>" / "加班单 · …" instead of "实验委托 T1 · …".
 	if not ask(id).is_empty():
-		return "实验委托 %s · %s" % [code(id), ask(id)]
+		return "委托 · %s" % ask(id)
 	if is_lab(id):
-		return "实验委托 %s · " % code(id) + String(LEVELS[id]["order"]).trim_prefix("工单 · ")
+		return ("%s · " % OVERTIME_NAME if LAB_EXTRA.has(id) else "委托 · ") + String(LEVELS[id]["order"]).trim_prefix("工单 · ")
 	return "工单 %s · " % code(id) + String(LEVELS[id]["order"]).trim_prefix("工单 · ")
 
 static func insight(id: int) -> String:

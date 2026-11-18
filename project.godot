@@ -1,7 +1,7 @@
 config_version=5
 
 [application]
-config/name="Kuro_sukobann_lab6"
+config/name="Kuro_sukobann_menuwarm"
 run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -9,6 +9,7 @@ config/icon="res://icon.svg"
 [autoload]
 GameState="*res://game_state.gd"
 AudioService="*res://audio_service.gd"
+MusicService="*res://music_service.gd"
 
 [display]
 window/size/viewport_width=1152

@@ -21,6 +21,26 @@ var draft_slot = 0
 var draft_data: Dictionary = {}
 var slot_buttons: Array[Button] = []
 var audio_button: Button
+var music_button: Button
+var music_slider: HSlider
+var map_last_focus: Button
+## Interaction pass A: each volume row shows its value, and a focused slider gets the same
+## dark + gold ring the buttons use (Godot's Slider never draws its "focus" stylebox).
+const SLIDER_TEXT = Color("a3b3a6")
+const SLIDER_TEXT_FOCUS = Color("fff3d6")
+const SLIDER_RING = Rect2(-49, -5, 196, 34)   # slider-local: from the "音量" label to the percent
+var volume_percent: Label
+var music_percent: Label
+var footer_label: Label
+var main_done = 0
+## Menu UI experiment: one look for every button on this screen. Focus is shown by a dark+gold ring
+## AND a ▶ marker, so it never relies on colour alone; hover/pressed/disabled each change shape too.
+const BTN_BG = Color("3d4f40")
+const BTN_HOVER = Color("587056")
+const BTN_PRESSED = Color("2b3a2f")
+const BTN_LIP = Color("1f3529")
+const FOCUS_GOLD = Color("f2c973")
+const FOCUS_DARK = Color(0.07, 0.05, 0.035, 0.95)
 var selector_shade: ColorRect
 var hidden_menu_items: Array[CanvasItem] = []
 
@@ -38,11 +58,29 @@ func _ready() -> void:
 		progress_problem += "\n已从浏览器的同步备份中恢复 %d 条记录。" % restored
 	_build_menu()
 	# V7.9: keyboard players can press Enter right away.
-	menu_choices.get_child(0).call_deferred("grab_focus")
+	# Keep the menu invitation aligned with the map's unfinished main/request fallback.
+	# Overtime stays optional and is never a completion requirement.
+	first_focus().call_deferred("grab_focus")
 	if not progress_problem.is_empty():
 		notice.title = "通关记录"
 		notice.dialog_text = progress_problem
 		notice.call_deferred("popup_centered")
+
+func first_focus() -> Control:
+	return menu_choices.get_child(1) if next_order_id() == 0 and menu_choices.get_child_count() > 1 else menu_choices.get_child(0)
+
+func next_order_id() -> int:
+	var id = _first_unfinished(Catalog.ORDER)
+	return id if id > 0 else _first_unfinished(Catalog.LAB_ORDER)
+
+func guidance_text() -> String:
+	if main_done < Catalog.COUNT:
+		return "把木箱送回金色光圈。"
+	var remaining = 0
+	for id in Catalog.LAB_ORDER:
+		if Progress.best_moves(id) < 0:
+			remaining += 1
+	return "主线已归位，休息角还有 %d 张委托。" % remaining if remaining > 0 else "工坊归整好了。来布置一张你自己的工单？"
 
 func label(text_value: String, size: int, color: Color = Color("f2dfbd")) -> Label:
 	var item = Label.new()
@@ -56,7 +94,74 @@ func button(text_value: String, action: Callable, height: int = 50) -> Button:
 	item.text = text_value
 	item.custom_minimum_size = Vector2(0, height)
 	item.pressed.connect(action)
+	style_button(item)
 	return item
+
+func _state_box(bg: Color, lip: int, top: int = 10, bottom: int = 10) -> StyleBoxFlat:
+	var st = StyleBoxFlat.new()
+	st.bg_color = bg
+	st.set_corner_radius_all(8)
+	st.border_color = BTN_LIP
+	st.border_width_bottom = lip
+	st.content_margin_left = 16
+	st.content_margin_right = 16
+	st.content_margin_top = top
+	st.content_margin_bottom = bottom
+	return st
+
+## Applies the five states. `card` keeps the chapter tab colour on the left edge of map cards.
+func style_button(item: Button, card: Color = Color(0, 0, 0, 0)) -> void:
+	var states = {"normal": _state_box(BTN_BG, 4), "hover": _state_box(BTN_HOVER, 4),
+		"pressed": _state_box(BTN_PRESSED, 0, 13, 7), "hover_pressed": _state_box(BTN_PRESSED, 0, 13, 7),
+		"disabled": _state_box(Color(0.15, 0.14, 0.11, 0.85), 0)}
+	if card.a > 0.0:
+		states["normal"] = _card_style(Color("2f3a30"), card)
+		states["hover"] = _card_style(Color("3f523f"), card)
+		states["pressed"] = _card_style(BTN_PRESSED, card)
+		states["hover_pressed"] = states["pressed"]
+		states["pressed"].content_margin_top = 9
+		states["pressed"].content_margin_bottom = 3
+	for key in states:
+		item.add_theme_stylebox_override(key, states[key])
+	item.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
+	item.add_theme_color_override("font_color", Color("f5e6c2"))
+	item.add_theme_color_override("font_hover_color", Color("fff3d6"))
+	item.add_theme_color_override("font_focus_color", Color("fff3d6"))
+	item.add_theme_color_override("font_hover_pressed_color", Color("e6d6b2"))
+	item.add_theme_color_override("font_pressed_color", Color("e6d6b2"))
+	item.add_theme_color_override("font_disabled_color", Color("958d78"))
+	item.set_meta("card", card.a > 0.0)
+	if not item.draw.is_connected(_draw_button_marks.bind(item)):
+		item.draw.connect(_draw_button_marks.bind(item))
+
+func _draw_button_marks(item: Button) -> void:
+	var r = Rect2(Vector2.ZERO, item.size)
+	if item.disabled:
+		# a dashed outline: "not available" reads without colour
+		var c = Color("6d6655")
+		var pts = [r.position, Vector2(r.end.x, 0), r.end, Vector2(0, r.end.y), r.position]
+		for i in 4:
+			item.draw_dashed_line(pts[i], pts[i + 1], c, 1.5, 6.0)
+		return
+	if item.get_draw_mode() == BaseButton.DRAW_HOVER and not item.get_meta("card", false):
+		item.draw_rect(Rect2(10, 2, r.size.x - 20, 2), Color("f0cf8e"))   # warm top edge on hover
+	if item.has_focus():
+		var dark = StyleBoxFlat.new()
+		dark.draw_center = false
+		dark.set_corner_radius_all(13)
+		dark.border_color = FOCUS_DARK
+		dark.set_border_width_all(3)
+		item.draw_style_box(dark, r.grow(7))
+		var gold = StyleBoxFlat.new()
+		gold.draw_center = false
+		gold.set_corner_radius_all(11)
+		gold.border_color = FOCUS_GOLD
+		gold.set_border_width_all(3)
+		item.draw_style_box(gold, r.grow(4))
+		# the ▶ marker: inside on menu buttons, outside the left edge on map cards
+		var mid = r.size.y / 2.0
+		var x0 = -18.0 if item.get_meta("card", false) else 18.0
+		item.draw_colored_polygon(PackedVector2Array([Vector2(x0, mid - 8), Vector2(x0 + 11, mid), Vector2(x0, mid + 8)]), FOCUS_GOLD)
 
 func _build_menu() -> void:
 	var art = Node2D.new()
@@ -68,30 +173,20 @@ func _build_menu() -> void:
 	for id in Catalog.ORDER:
 		if Progress.best_moves(id) >= 0:
 			done += 1
+	main_done = done
 	var eyebrow_text = "灯火未熄 · 今晚的主线工单 %d / %d" % [done, Catalog.COUNT]
 	if done >= Catalog.COUNT:
 		eyebrow_text = "灯火仍暖 · 今晚 %d 张主线工单全部归位" % Catalog.COUNT
-	var eyebrow = label(eyebrow_text, 17, Color("bfa983") if done < Catalog.COUNT else Color("f3bc66"))
-	eyebrow.position = Vector2(78, 80)
+	# Menu tidy (post-exam): progress stays, but quieter than the title (smaller, lower contrast;
+	# still at least 4.5:1 against the wall behind it).
+	var eyebrow = label(eyebrow_text, 16, Color(0.75, 0.66, 0.51, 0.92) if done < Catalog.COUNT else Color(0.95, 0.74, 0.40, 0.90))
+	eyebrow.position = Vector2(78, 82)
 	add_child(eyebrow)
 	var title = label("推箱工坊", 62, Color("f3dfb5"))
 	title.position = Vector2(72, 112)
 	add_child(title)
-	# Lab: this build is an experiment with its own save folder; say so where everyone looks first.
-	var badge = PanelContainer.new()
-	var bstyle = StyleBoxFlat.new()
-	bstyle.bg_color = Color("ef7a6c")
-	bstyle.set_corner_radius_all(9)
-	bstyle.content_margin_left = 10
-	bstyle.content_margin_right = 10
-	bstyle.content_margin_top = 2
-	bstyle.content_margin_bottom = 3
-	badge.add_theme_stylebox_override("panel", bstyle)
-	badge.add_child(label("实验版 3 · 工具箱与休息角", 16, Color("2a1e18")))
-	badge.position = Vector2(338, 136)
-	badge.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(badge)
-	var subtitle = label("把木箱送回金色光圈。" if done < Catalog.COUNT else "工坊归整好了。来布置一张你自己的工单？", 24, Color("9bb6a9"))
+	# This source branch shares the MenuWarm save name; use the isolated blind-test launcher.
+	var subtitle = label(guidance_text(), 24, Color("9bb6a9"))
 	subtitle.position = Vector2(80, 206)
 	add_child(subtitle)
 	var choices = VBoxContainer.new()
@@ -106,51 +201,74 @@ func _build_menu() -> void:
 	# V7.11: a browser tab cannot be closed by the game, so Web builds have no quit button.
 	if not OS.has_feature("web"):
 		choices.add_child(button("离开工坊", func(): GameState.request_quit(), 48))
-	var note = label("方向键 / WASD 移动 · Z 撤销 · R 重开" + ("" if OS.has_feature("web") else " · F11 全屏") + "\nShift + 方向键：牵引关卡中拉箱", 17, Color("8ca497"))
-	note.position = Vector2(80, 540)
+	var note = label("方向键 / WASD 移动 · Z 撤销 · R 重开" + ("" if OS.has_feature("web") else " · F11 全屏") + "\nShift + 方向键：牵引关卡中拉箱 · M：切换音效", 18, Color("9fb3a6"))
+	note.position = Vector2(80, 520)
 	add_child(note)
 	if ResourceLoader.exists("res://art/player.png"):
 		var portrait = TextureRect.new()
 		portrait.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		portrait.texture = load("res://art/player.png")
 		portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		portrait.position = Vector2(960, 400)
-		portrait.size = Vector2(150, 230)
+		portrait.position = Vector2(880, 536)
+		portrait.size = Vector2(120, 152)
 		portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		add_child(portrait)
-	var feature = label("一推一拉，让工坊慢慢归整。", 22, Color("edcc94"))
-	feature.position = Vector2(555, 620)
-	add_child(feature)
-	var footer = label("%d 张主线工单 + %d 张实验委托  /  牵引与工具箱  /  关卡创作" % [Catalog.COUNT, Catalog.LAB_ORDER.size()], 16, Color("899d8e"))
-	footer.position = Vector2(80, 660)
-	add_child(footer)
+	# Menu tidy (post-exam): the developer summary line ("N 张主线工单 + N 张实验委托 / …") is gone;
+	# footer_label stays null. The facilitator line below still uses that spot when the log is on.
 	# V7.11: facilitator-only indicator; players never see it unless the log was turned on.
 	playtest_label = label("", 15, Color("e0a070"))
-	playtest_label.position = Vector2(80, 686)
+	playtest_label.position = Vector2(80, 679)
 	add_child(playtest_label)
 	_refresh_playtest_label()
-	audio_button = button(AudioService.label_text(), AudioService.toggle_mute, 38)
-	audio_button.position = Vector2(80, 604)
-	audio_button.size = Vector2(174, 38)
+	# Menu UI experiment: sound effects and music are two separate rows with a clear gap,
+	# each a toggle followed by its own slider; the rows never share a pixel.
+	audio_button = button(AudioService.label_text(), AudioService.toggle_mute, 34)
+	_compact(audio_button)
 	audio_button.add_theme_font_size_override("font_size", 16)
 	add_child(audio_button)
+	# size after the font is known; set earlier it would keep the theme font's taller minimum
+	audio_button.position = Vector2(80, 584)
+	audio_button.size = Vector2(150, 34)
 	AudioService.muted_changed.connect(func(_muted: bool): audio_button.text = AudioService.label_text())
 	# V7.11: remembered volume; dragging plays a short sample so the level can be judged.
-	var vol_label = label("音量", 16, Color("899d8e"))
-	vol_label.position = Vector2(270, 612)
+	var vol_label = label("音量", 16, SLIDER_TEXT)
+	vol_label.position = Vector2(246, 589)
 	add_child(vol_label)
 	volume_slider = HSlider.new()
 	volume_slider.min_value = 0
 	volume_slider.max_value = 100
 	volume_slider.step = 5
 	volume_slider.value = round(AudioService.volume * 100)
-	volume_slider.position = Vector2(312, 614)
-	volume_slider.size = Vector2(140, 24)
+	volume_slider.position = Vector2(290, 589)
+	volume_slider.size = Vector2(105, 24)
 	volume_slider.value_changed.connect(_on_volume_changed)
 	volume_slider.drag_ended.connect(func(_changed): AudioService.play_effect("goal"))
 	_style_slider(volume_slider)
 	add_child(volume_slider)
+	volume_percent = _slider_row(volume_slider, vol_label)
+	music_button = button(MusicService.label_text(), MusicService.toggle_mute, 34)
+	_compact(music_button)
+	music_button.add_theme_font_size_override("font_size", 16)
+	add_child(music_button)
+	# size after the font is known; set earlier it would keep the theme font's taller minimum
+	music_button.position = Vector2(80, 632)
+	music_button.size = Vector2(150, 34)
+	MusicService.changed.connect(_on_music_changed)
+	var music_label = label("音量", 16, SLIDER_TEXT)
+	music_label.position = Vector2(246, 637)
+	add_child(music_label)
+	music_slider = HSlider.new()
+	music_slider.min_value = 0
+	music_slider.max_value = 100
+	music_slider.step = 5
+	music_slider.value = round(MusicService.volume * 100)
+	music_slider.position = Vector2(290, 637)
+	music_slider.size = Vector2(105, 24)
+	music_slider.value_changed.connect(func(v): MusicService.set_volume(v / 100.0))
+	_style_slider(music_slider)
+	add_child(music_slider)
+	music_percent = _slider_row(music_slider, music_label)
 	_build_selector()
 	notice = AcceptDialog.new()
 	notice.title = "暂时无法进入"
@@ -209,7 +327,8 @@ func _build_selector() -> void:
 	for r in rows:
 		var line = HBoxContainer.new()
 		line.add_theme_constant_override("separation", 10)
-		var tag = label(r[0].replace(" · 实验", "\n实验"), 16, CHAPTER_COLORS.get(r[0], Color("f2dfbd")))
+		# Flow pass B: the extra row is named for players; the chapter key itself is unchanged.
+		var tag = label("休息角\n委托" if r[0] == "工具篇 · 实验" else r[0], 16, CHAPTER_COLORS.get(r[0], Color("f2dfbd")))
 		tag.custom_minimum_size = Vector2(96, 0)
 		tag.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		line.add_child(tag)
@@ -224,8 +343,7 @@ func _build_selector() -> void:
 			b.custom_minimum_size.x = 160
 			b.alignment = HORIZONTAL_ALIGNMENT_LEFT
 			var tab = CHAPTER_COLORS.get(Catalog.chapter(id), Color("f2dfbd"))
-			b.add_theme_stylebox_override("normal", _card_style(Color("2f3a30"), tab))
-			b.add_theme_stylebox_override("hover", _card_style(Color("3d4b3d"), tab))
+			style_button(b, tab)
 			grid.add_child(b)
 			if Catalog.is_lab(id):
 				lab_buttons.append(b)
@@ -271,15 +389,12 @@ func _show_levels() -> void:
 		var id = lab_ids[i]
 		var best = Progress.best_moves(id)
 		var optimal = Catalog.optimal(id)
-		lab_buttons[i].text = Catalog.display_name(id) + ("\n最佳 %d · 最优 %d" % [best, optimal] + (" ★" if best <= optimal else "") if best >= 0 else "\n未完成 · 最优 %d" % optimal)
+		lab_buttons[i].text = Catalog.display_name(id) + _record_line(best, optimal)
 	for i in Catalog.ORDER.size():
 		var id = Catalog.ORDER[i]
 		var best = Progress.best_moves(id)
 		var optimal = Catalog.optimal(id)
-		var record = "\n未完成 · 最优 %d" % optimal
-		if best >= 0:
-			record = "\n最佳 %d 步 · 最优 %d" % [best, optimal] + (" ★" if best <= optimal else "")
-		builtin_buttons[i].text = Catalog.display_name(id) + record
+		builtin_buttons[i].text = Catalog.display_name(id) + _record_line(best, optimal)
 	for index in range(1, 4):
 		var b = slot_buttons[index - 1]
 		var path = Store.slot_path(index)
@@ -296,9 +411,62 @@ func _show_levels() -> void:
 	selector_shade.show()	
 	selector.show()
 	menu_art_node.corner_visible = false
-	builtin_buttons[0].grab_focus()
+	map_default_focus().grab_focus()
+
+## Flow pass B: one short record line for every card, so a fully cleared row still fits the panel
+## (the old "最佳 19 步 · 最优 19 ★" pushed five cards past the window edge).
+func _record_line(best: int, optimal: int) -> String:
+	if best < 0:
+		return "\n未完成 · 最优 %d" % optimal
+	if best <= optimal:
+		return "\n★ 最优 %d 步" % best
+	return "\n最佳 %d · 最优 %d" % [best, optimal]
+
+func _card_for(id: int) -> Button:
+	if Catalog.ORDER.has(id):
+		return builtin_buttons[Catalog.ORDER.find(id)]
+	var labs = Catalog.LAB_ORDER + Catalog.LAB_EXTRA
+	return lab_buttons[labs.find(id)] if labs.has(id) else null
+
+func _first_unfinished(list: Array, after: int = -1) -> int:
+	for i in range(after + 1, list.size()):
+		if Progress.best_moves(list[i]) < 0:
+			return list[i]
+	return 0
+
+## Flow pass B: which card the map opens on. Free choice is untouched — this is only the start.
+## 1. Back from a level this session: that level if it was left unsolved; otherwise the next
+##    unfinished one after it in the same list.
+## 2. Otherwise the card the player last had focused in this menu visit.
+## 3. Otherwise the next unfinished main order; when the night is done, the next unfinished
+##    request; when everything is done, order 01.
+## Only Progress.best_moves() is read; nothing new is saved.
+func map_default_focus() -> Button:
+	var target: Button = null
+	if GameState.map_return_pending:
+		GameState.map_return_pending = false
+		if GameState.selected_builtin > 0:
+			var id = GameState.selected_builtin
+			if not GameState.map_return_solved:
+				target = _card_for(id)
+			else:
+				var list = Catalog.ORDER if Catalog.ORDER.has(id) else (Catalog.LAB_ORDER if Catalog.LAB_ORDER.has(id) else [])
+				var next = _first_unfinished(list, list.find(id)) if not list.is_empty() else 0
+				if next > 0:
+					target = _card_for(next)
+		elif GameState.selected_slot >= 1 and GameState.selected_slot <= slot_buttons.size():
+			target = slot_buttons[GameState.selected_slot - 1]
+	elif is_instance_valid(map_last_focus) and map_last_focus.is_visible_in_tree():
+		target = map_last_focus
+	if target == null or target.disabled:
+		var id = next_order_id()
+		target = _card_for(id) if id > 0 else builtin_buttons[0]
+	return target
 
 func _hide_levels() -> void:
+	var owner_now = get_viewport().gui_get_focus_owner()
+	if owner_now is Button and selector.is_ancestor_of(owner_now) and (builtin_buttons.has(owner_now) or lab_buttons.has(owner_now) or slot_buttons.has(owner_now)):
+		map_last_focus = owner_now   # flow pass B: remember the player's own choice for this visit
 	menu_art_node.corner_visible = true
 	selector.hide()
 	selector_shade.hide()
@@ -387,6 +555,20 @@ func _on_volume_changed(value: float) -> void:
 
 func _refresh_playtest_label() -> void:
 	playtest_label.text = "● 试玩记录中 · 已记录 %d 次尝试 · Ctrl+Shift+E 导出 · Ctrl+Shift+P 关闭" % Playtest.attempt_count() if Playtest.enabled() else ""
+	if footer_label != null:   # the facilitator line takes the footer's place while it shows
+		footer_label.visible = playtest_label.text.is_empty()
+
+## Small toggles: thin inner margins so the stated height is the real height.
+func _compact(item: Button) -> void:
+	for key in ["normal", "hover", "pressed", "hover_pressed", "disabled"]:
+		var st = item.get_theme_stylebox(key)
+		if st is StyleBoxFlat:
+			st.content_margin_top = 4 if key.find("pressed") < 0 else 7
+			st.content_margin_bottom = 6 if key.find("pressed") < 0 else 3
+
+func _on_music_changed() -> void:
+	if is_instance_valid(music_button):
+		music_button.text = MusicService.label_text()
 
 func _toggle_playtest() -> void:
 	Playtest.set_enabled(not Playtest.enabled())
@@ -397,12 +579,14 @@ func _toggle_playtest() -> void:
 
 func _export_playtest() -> void:
 	notice.title = "导出试玩记录"
+	# An isolated profile may have a long absolute path. Wrap it before measuring the dialog.
+	notice.get_label().autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	if Playtest.attempt_count() == 0:
 		notice.dialog_text = "还没有试玩记录。"
 	else:
 		var where = Playtest.export_copy()
 		notice.dialog_text = ("已导出 %d 次尝试：\n%s" % [Playtest.attempt_count(), where]) if not where.is_empty() else "导出失败，请检查磁盘权限。"
-	notice.popup_centered()
+	notice.popup_centered(Vector2i(680, 240))
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.ctrl_pressed and event.shift_pressed:
@@ -417,6 +601,44 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and selector.visible:
 		_hide_levels()
 		get_viewport().set_input_as_handled()
+
+## Interaction pass A: value read-out + visible keyboard focus for one volume row.
+func _slider_row(s: HSlider, caption: Label) -> Label:
+	var percent = label("%d%%" % int(s.value), 15, SLIDER_TEXT)
+	percent.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	add_child(percent)
+	# size after add_child: set earlier it would keep the theme font's wider minimum
+	percent.position = Vector2(s.position.x + s.size.x + 2, s.position.y + 1)
+	percent.size = Vector2(34, 22)
+	s.value_changed.connect(func(v): percent.text = "%d%%" % int(v))
+	var refresh = func():
+		var on = s.has_focus()
+		caption.add_theme_color_override("font_color", SLIDER_TEXT_FOCUS if on else SLIDER_TEXT)
+		percent.add_theme_color_override("font_color", FOCUS_GOLD if on else SLIDER_TEXT)
+		s.queue_redraw()
+	s.focus_entered.connect(refresh)
+	s.focus_exited.connect(refresh)
+	s.draw.connect(_draw_slider_focus.bind(s))
+	return percent
+
+func slider_focus_rect(s: HSlider) -> Rect2:
+	return Rect2(s.position + SLIDER_RING.position, SLIDER_RING.size)
+
+func _draw_slider_focus(s: HSlider) -> void:
+	if not s.has_focus():
+		return
+	var dark = StyleBoxFlat.new()
+	dark.draw_center = false
+	dark.set_corner_radius_all(11)
+	dark.border_color = FOCUS_DARK
+	dark.set_border_width_all(3)
+	s.draw_style_box(dark, SLIDER_RING.grow(3))
+	var gold = StyleBoxFlat.new()
+	gold.draw_center = false
+	gold.set_corner_radius_all(9)
+	gold.border_color = FOCUS_GOLD
+	gold.set_border_width_all(3)
+	s.draw_style_box(gold, SLIDER_RING)
 
 ## V7.12: the volume slider uses the workshop palette instead of Godot's default grey.
 func _style_slider(s: HSlider) -> void:

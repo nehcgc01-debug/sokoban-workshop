@@ -16,6 +16,7 @@ var players: Array[AudioStreamPlayer] = []
 var next_voice = 0
 var played_count = 0
 var last_sound = ""
+var shutting_down = false
 
 func _ready() -> void:
 	for effect in ["push", "goal", "win"]:
@@ -78,10 +79,12 @@ func set_muted(value: bool) -> void:
 	muted_changed.emit(muted)
 
 func label_text() -> String:
-	return "音效：关  M" if muted else "音效：开  M"
+	# Interaction pass A: the label is the state only; the M hint sits with the other key hints
+	# ("M：切换音效"), so it is not read as a switch for every sound. M still toggles effects only.
+	return "音效：关" if muted else "音效：开"
 
 func play_effect(effect: String) -> bool:
-	if muted or volume <= 0.001 or not streams.has(effect) or players.is_empty():
+	if shutting_down or muted or volume <= 0.001 or not streams.has(effect) or players.is_empty():
 		return false
 	var player = players[next_voice]
 	next_voice = (next_voice + 1) % players.size()
@@ -122,3 +125,16 @@ func _synthesize(effect: String) -> AudioStreamWAV:
 	stream.stereo = false
 	stream.data = bytes
 	return stream
+
+## Release active playback before the autoload leaves the tree.
+func begin_shutdown() -> void:
+	shutting_down = true
+	for voice in players:
+		if is_instance_valid(voice):
+			voice.stop()
+			voice.stream = null
+	players.clear()
+	streams.clear()
+
+func _exit_tree() -> void:
+	begin_shutdown()

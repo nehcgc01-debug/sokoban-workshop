@@ -30,7 +30,7 @@ func run_tests() -> void:
     check(root.gui_get_focus_owner() == play, "closing selector restores Play focus")
     Progress.record(1, 3)
     menu._show_levels()
-    check(menu.builtin_buttons[0].text.contains("最佳 3 步"), "opening selector refreshes best moves")
+    check(menu.builtin_buttons[0].text.contains("★ 最优 3 步"), "opening selector refreshes best moves")
     var event = InputEventAction.new()
     event.action = "ui_cancel"
     event.pressed = true

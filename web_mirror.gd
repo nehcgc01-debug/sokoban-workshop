@@ -5,7 +5,7 @@ extends RefCounted
 ## synchronous, so on Web every save is mirrored there too and reconciled on the next start.
 ## On desktop this does nothing unless a test enables the in-memory stand-in.
 
-const PREFIX = "kuro_sukobann_lab6:"  # Lab: never shares browser storage with the official build
+const PREFIX = "kuro_sukobann_menuwarm:"  # Menu UI experiment: never shares browser storage with Lab6 or the official build
 static var use_fake := false
 static var fake := {}
 

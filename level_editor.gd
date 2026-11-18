@@ -57,6 +57,7 @@ var selection_label: Label
 var slot_popup: PopupPanel
 var slot_buttons: Array[Button] = []
 var slot_confirm: Button
+var slot_cancel: Button
 var overwrite_dialog: ConfirmationDialog
 var discard_dialog: ConfirmationDialog
 var error_dialog: AcceptDialog
@@ -333,8 +334,13 @@ func _build_ui() -> void:
 		var b = _button(v, "存档 %d" % i, Vector2.ZERO, 340, _choose_slot.bind(i))
 		slot_buttons.append(b)
 	slot_confirm = _button(v, "确认", Vector2.ZERO, 340, _confirm_slot)
-	_button(v, "取消", Vector2.ZERO, 340, slot_popup.hide)
-	overwrite_dialog = ConfirmationDialog.new()
+	slot_cancel = _button(v, "取消", Vector2.ZERO, 340, slot_popup.hide)
+	for b in slot_buttons + [slot_confirm, slot_cancel]:
+		b.focus_mode = Control.FOCUS_ALL
+		var focus_style = _style(Color(0, 0, 0, 0), Color("ffe3a3"))
+		focus_style.set_border_width_all(3)
+		b.add_theme_stylebox_override("focus", focus_style)
+	overwrite_dialog = preload("res://safe_confirmation.gd").new()
 	overwrite_dialog.title = "覆盖存档"
 	overwrite_dialog.ok_button_text = "覆盖"
 	overwrite_dialog.cancel_button_text = "取消"
@@ -342,7 +348,7 @@ func _build_ui() -> void:
 	overwrite_dialog.confirmed.connect(_overwrite_confirmed)
 	overwrite_dialog.canceled.connect(_return_to_picker)
 	layer.add_child(overwrite_dialog)
-	discard_dialog = ConfirmationDialog.new()
+	discard_dialog = preload("res://safe_confirmation.gd").new()
 	discard_dialog.title = "放弃当前改动？"
 	discard_dialog.ok_button_text = "放弃改动"
 	discard_dialog.cancel_button_text = "取消"
@@ -545,11 +551,39 @@ func _open_slots(mode: String) -> void:
 			slot_buttons[i].disabled = i == 2
 			if i == 2: slot_buttons[i].text = "无第三个原始关卡"
 	slot_popup.popup_centered(Vector2i(380, 350))
+	_focus_slot_picker.call_deferred()
+
+# Only the modal picker participates in keyboard navigation; the canvas shortcuts stay unchanged.
+func _configure_slot_focus() -> Array[Button]:
+	var enabled: Array[Button] = []
+	for b in slot_buttons + [slot_confirm, slot_cancel]:
+		if not b.disabled and b.visible:
+			enabled.append(b)
+	for i in range(enabled.size()):
+		var b = enabled[i]
+		var previous = b.get_path_to(enabled[posmod(i - 1, enabled.size())])
+		var following = b.get_path_to(enabled[(i + 1) % enabled.size()])
+		b.focus_previous = previous
+		b.focus_next = following
+		b.focus_neighbor_top = previous
+		b.focus_neighbor_bottom = following
+	return enabled
+
+func _focus_slot_picker() -> void:
+	if not slot_popup.visible:
+		return
+	var enabled = _configure_slot_focus()
+	if save_slot >= 1 and save_slot <= slot_buttons.size() and not slot_buttons[save_slot - 1].disabled:
+		slot_buttons[save_slot - 1].grab_focus()
+	elif not enabled.is_empty():
+		enabled[0].grab_focus()
 
 func _choose_slot(slot: int) -> void:
 	save_slot = slot
 	selection_label.text = "导入原始草稿 %d（副本）" % slot if popup_mode == "original" else (("保存至：" if popup_mode == "save" else "读取：") + "存档 %d" % slot)
 	slot_confirm.disabled = false
+	_configure_slot_focus()
+	slot_confirm.grab_focus()
 
 func _confirm_slot() -> void:
 	if save_slot < 1 or save_slot > 3: return
@@ -638,6 +672,7 @@ func _return_to_picker() -> void:
 func _reopen_slot_picker() -> void:
 	if is_inside_tree():
 		slot_popup.popup_centered(Vector2i(380, 350))
+		_focus_slot_picker.call_deferred()
 
 func _request_back() -> void:
 	if _modal_open(): return

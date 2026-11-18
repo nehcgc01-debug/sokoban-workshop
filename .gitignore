@@ -1,0 +1,33 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+.blindtest-userdata/
+BlindTestData/
+
+.host-private/
+
+# Private acceptance output and locally generated artifacts
+.qa-private/
+*.log
+*.jsonl
+__pycache__/
+*.pyc
+progress.cfg*
+audio.cfg*
+music.cfg*
+launcher/*.res
+settings.cfg*
+music_settings.cfg*
+verified_levels.cfg*
+editor_recovery.json*
+custom_level*.json*
+playtest_enabled
+playtest_export*.txt
+/test_evidence/
+/logs/
+/screenshots/
+/Godot*.exe
+/godot*.exe
+*.zip
+*.pck
+*.docx

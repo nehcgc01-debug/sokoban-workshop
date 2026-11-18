@@ -61,6 +61,7 @@ var progress_first_time = false   # the win that failed to save was the first on
 var progress_save_report: Dictionary = {}   # Lab 4: Progress.last_report of the last write
 var retry_button: Button
 var ability_label: Label
+var shortcuts_label: Label
 var audio_button: Button
 var hint_button: Button
 var hint_level = 0               # the hint shown now for the current stage (0 = the stage's guide)
@@ -157,17 +158,19 @@ func _ready() -> void:
 		status_label.modulate = Color("ffb4a6")
 		return
 	initial_data = result["data"].duplicate(true)
+	shortcuts_label.text = _shortcut_text()
 	var builtin = GameState.selected_builtin
 	title_label.text = "试玩当前关卡" if is_preview else (Catalog.level_title(builtin) if builtin > 0 else "自定义存档 %d" % GameState.selected_slot)
 	if not is_preview and builtin > 0:
-		title_label.text += " · " + Catalog.chapter(builtin)
+		if not Catalog.is_lab(builtin):   # flow pass B: "休息角委托 1 · …" already says what it is
+			title_label.text += " · " + Catalog.chapter(builtin)
 		order_label.text = Catalog.order_text(builtin)
 		if Catalog.chapter(builtin) == "挑战篇":
 			# Challenge chapter: the headline turns lamp-amber; the UI accent follows the situation.
 			headline_label.text = "推箱工坊 · 夜班工单"
 			headline_label.modulate = Board.GOLD
 		elif Catalog.is_lab(builtin):
-			headline_label.text = "推箱工坊 · 实验委托（不计入主线）"
+			headline_label.text = "推箱工坊 · %s（主线之外）" % (Catalog.OVERTIME_NAME if Catalog.LAB_EXTRA.has(builtin) else Catalog.EXTRA_NAME)
 			headline_label.modulate = Board.TOOL
 	elif is_preview:
 		headline_label.text = "推箱工坊 · 试玩台"
@@ -257,7 +260,15 @@ func _build_ui() -> void:
 	finale_panel.add_child(finale_label)
 	finale_panel.hide()
 	ui.add_child(finale_panel)
-	_label(ui, "方向键 / WASD 移动  ·  Z 撤销  ·  R 重开  ·  按住 Shift 预览牵引  ·  B 回到出错前  ·  Esc 返回", Vector2(54, 668), Vector2(1060, 36), 17)
+	shortcuts_label = _label(ui, "", Vector2(54, 668), Vector2(1060, 36), 17)
+
+# Availability follows the map, not its catalog number or remaining charges.
+# A zero-charge toolbox map can earn a pull later, and still needs the help.
+func _shortcut_text() -> String:
+	var text = "方向键 / WASD 移动  ·  Z 撤销  ·  R 重开"
+	if int(initial_data.get("pull_charges", 0)) > 0 or Store.cell_of(initial_data, "tool") != NONE:
+		text += "  ·  按住 Shift 预览牵引"
+	return text + "  ·  B 回到出错前  ·  M 切换音效  ·  Esc 返回"
 
 func _label(parent: Node, text: String, position_: Vector2, size_: Vector2, font_size: int) -> Label:
 	var label = Label.new()
@@ -1003,7 +1014,13 @@ func _update_finale() -> void:
 		show = done == Catalog.COUNT
 	finale_panel.visible = show
 	if show:
-		finale_label.text = "今晚的 %d 张工单全部归位\n\n各关最佳合计 %d 步 · ★ %d / %d\n%s\n\n按 E 打开关卡编辑器，布置一张你自己的工单。" % [Catalog.COUNT, total_best, stars, Catalog.COUNT, "每一关都达到了最优步数！" if stars == Catalog.COUNT else "回到工坊地图，没有 ★ 的关卡还能更省几步。"]
+		# Post-submission: match the menu invitation; the overtime map stays optional.
+		var remaining = 0
+		for id in Catalog.LAB_ORDER:
+			if Progress.best_moves(id) < 0:
+				remaining += 1
+		var invitation = "休息角还有 %d 张委托。\n按 Enter / N 回菜单，看看剩下的委托。" % remaining if remaining > 0 else "按 E 打开关卡编辑器，布置自己的工单。\n也可回菜单重玩。"
+		finale_label.text = "主线 %d 张工单全部归位\n\n各关最佳合计 %d 步 · ★ %d / %d\n%s\n\n%s" % [Catalog.COUNT, total_best, stars, Catalog.COUNT, "每一关都达到了最优步数！" if stars == Catalog.COUNT else "回到工坊地图，没有 ★ 的关卡还能更省几步。", invitation]
 
 func open_editor_from_ending() -> void:
 	# V7.10: on a middle map the summary panel (not a button) offers E, so the Next button keeps its place.
@@ -1016,6 +1033,10 @@ func open_editor_from_ending() -> void:
 
 func leave_game() -> void:
 	Playtest.finish(attempt, "win_then_menu" if level_complete else "left_unsolved")
+	if not is_preview:
+		# flow pass B: tell the map where the player just was (session memory only)
+		GameState.map_return_pending = true
+		GameState.map_return_solved = level_complete
 	GameState.preview_data.clear()
 	get_tree().change_scene_to_file("res://level_editor.tscn" if is_preview else "res://main_menu.tscn")
 
@@ -1084,7 +1105,7 @@ func _play_hint() -> String:
 	if not is_preview and GameState.selected_builtin > 0 and not Catalog.guide(GameState.selected_builtin).is_empty():
 		return Catalog.guide(GameState.selected_builtin, _phase())
 	if not is_preview and GameState.selected_builtin > 0 and int(initial_data.get("pull_charges", 0)) > 0:
-		return "牵引只有一次，先观察可移动空间。\n普通走路不会消耗牵引。\nZ 可撤销试错；R 重新挑战。"
+		return "先观察可移动空间。\n普通走路不会消耗牵引。"
 	if tool_cell != NONE:
 		return "把箱子推到金色圆环上。\n红绳工具箱推上工作台，会给你 1 次牵引。"
 	return "把每个箱子推到金色圆环上。\n箱子到位后会显示青绿色勾标。"

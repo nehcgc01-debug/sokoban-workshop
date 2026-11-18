@@ -359,7 +359,7 @@ func run():
 	# T2b: the shorter candidate sits beside T2, outside the chain, without a fixture
 	check(Catalog.is_lab(16) and Catalog.next_id(16) == 0 and Catalog.next_id(15) == 0 and Catalog.next_id(13) == 14 and Catalog.fixture(16).is_empty() and Catalog.corner_ids() == [12, 13, 14, 15], "T2b is a lab map outside the T1 -> C1 chain; the rest corner still has four items")
 	g = await play(16)
-	check(g.pull_charges == 1 and g.tool_cell == Vector2i(3, 4) and g.fixture_kind.is_empty() and g.title_label.text.contains("T2b"), "T2b loads with one pull and a crate, no fixture")
+	check(g.pull_charges == 1 and g.tool_cell == Vector2i(3, 4) and g.fixture_kind.is_empty() and g.title_label.text.contains("加班单") and not g.title_label.text.contains("T2b") and Catalog.code(16) == "T2b", "T2b loads with one pull and a crate, no fixture")
 	route(g, "LDDu")
 	check(g.dead_now and g.dead_reason == "pull" and g.dead_crate_lost, "T2b keeps T2's trap: the pull on the cargo box first is decisive")
 	g.restart_level()

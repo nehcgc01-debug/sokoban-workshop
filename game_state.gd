@@ -2,6 +2,10 @@ extends Node
 
 var selected_slot = 1
 var selected_builtin = 1
+## Flow pass B (session only, never saved): set when a level is left for the menu, so the map can
+## open on a sensible card. See main_menu.gd map_default_focus().
+var map_return_pending := false
+var map_return_solved := false
 var preview_data: Dictionary = {}
 var editor_snapshot: Dictionary = {}
 var editor_history: Dictionary = {}   # V7.13: editor undo/redo, kept across a test play only
@@ -40,6 +44,9 @@ const DraftRecovery = preload("res://draft_recovery.gd")
 var close_dialog: ConfirmationDialog
 var close_error: AcceptDialog
 var quit_requested = false
+var audio_shutdown_pending = false
+## MenuWarm v3: tests replace the final quit with this (the real exit path stays untouched otherwise).
+var quit_hook: Callable = Callable()
 var suppress_quit_for_test = false
 
 func _ready() -> void:
@@ -70,6 +77,10 @@ func _active_draft() -> Dictionary:
 	return editor_snapshot
 
 func request_quit() -> void:
+	# MenuWarm v3: once the exit has been confirmed and audio is draining, further close requests
+	# (a second Alt+F4, the title-bar ×, 离开工坊 again) are ignored instead of re-asking about the draft.
+	if audio_shutdown_pending:
+		return
 	var data = _active_draft()
 	if bool(data.get("_dirty", false)):
 		if not close_dialog.visible:
@@ -160,4 +171,17 @@ func _input(event: InputEvent) -> void:
 
 func _finish_quit() -> void:
 	quit_requested = true
-	if not suppress_quit_for_test: get_tree().quit()
+	if suppress_quit_for_test or audio_shutdown_pending:
+		return
+	audio_shutdown_pending = true
+	AudioService.begin_shutdown()
+	var music = get_node_or_null("/root/MusicService")
+	if music != null and is_instance_valid(music.player):
+		music.player.stop()
+		music.player.stream = null
+	# AudioServer releases stopped playback asynchronously; retain a short drain.
+	await get_tree().create_timer(0.1, true).timeout
+	if quit_hook.is_valid():
+		quit_hook.call()
+	else:
+		get_tree().quit()

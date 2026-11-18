@@ -200,11 +200,11 @@ func run():
 		if child.has_method("corner_title"): art = child
 		if child is Label and String(child.text).contains("灯火"): eyebrow = child.text
 	check(eyebrow.contains("主线工单 0 / 11"), "menu: the main line says '主线工单 0 / 11' although a lab request is done (%s)" % eyebrow)
-	check(art.corner_title().contains("实验委托 1 / 4"), "menu: the rest corner counts lab requests separately (%s)" % art.corner_title())
+	check(art.corner_title().contains("委托 1 / 4"), "menu: the rest corner counts lab requests separately (%s)" % art.corner_title())
 	g = await play(12)
-	check(g.headline_label.text.contains("实验委托") and g.headline_label.text.contains("不计入主线") and g.order_label.text.begins_with("实验委托 T1"), "lab map: headline and order line say 'lab request, not main line'")
+	check(g.headline_label.text.contains("休息角委托") and g.headline_label.text.contains("主线之外") and g.order_label.text.begins_with("委托 · ") and g.title_label.text.begins_with("休息角委托 1"), "lab map: headline and order line say 'lab request, not main line'")
 	g = await play(1)
-	check(g.order_label.text.begins_with("工单 01") and not g.headline_label.text.contains("实验"), "main map 1 keeps '工单 01'")
+	check(g.order_label.text.begins_with("工单 01") and not g.headline_label.text.contains("委托"), "main map 1 keeps '工单 01'")
 
 	# =============== 5. retry after a failed record write ===============
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(Progress.PATH))

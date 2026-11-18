@@ -1,6 +1,6 @@
 # Character art
 
-The player design began as Taisong Wang's hand-drawn concept: turquoise hair, blue fringe, orange flower, warm beige sweater, skirt, round mitten hands and rounded feet. The included `player.png` was generated with OpenAI image generation from that design at the user's request. It is AI-assisted prototype art, not solely hand-painted by the applicant. No third-party franchise character art was imported.
+The player design began as the project author's hand-drawn concept: turquoise hair, blue fringe, orange flower, warm beige sweater, skirt, round mitten hands and rounded feet. The included `player.png` was generated with OpenAI image generation from that design at the user's request. It is AI-assisted prototype art, not solely hand-painted by the applicant. No third-party franchise character art was imported.
 
 The gameplay renderer preserves the image aspect ratio. The original concept and this generated rendering are distinct work artifacts.
 

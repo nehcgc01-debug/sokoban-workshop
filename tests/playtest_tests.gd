@@ -108,6 +108,9 @@ func run():
 	menu._unhandled_key_input(key(KEY_E, true, true))
 	var exported = menu.notice.dialog_text.get_slice("\n", 1)
 	check(FileAccess.file_exists(exported) and FileAccess.get_file_as_string(exported) == Playtest.read_all(), "Ctrl+Shift+E exports an exact copy (%s)" % exported)
+	await process_frame
+	check(menu.notice.get_label().autowrap_mode == TextServer.AUTOWRAP_WORD_SMART, "long export paths wrap without changing the exported text")
+	check(menu.notice.size.x <= 680, "export dialog stays within the small-window width budget")
 	menu.notice.hide()
 	menu._unhandled_key_input(key(KEY_P, true, true))
 	check(not Playtest.enabled() and Playtest.attempt_count() == 2 and menu.playtest_label.text.is_empty(), "turning it off keeps the data and hides the indicator")

@@ -33,6 +33,17 @@ static func draw_glow(canvas: CanvasItem, kind: String, rect: Rect2, level: floa
 	for i in 12:
 		canvas.draw_circle(c, s * reach * flick * (1.0 - i * 0.075), Color(tint, 0.026 * level))
 
+## Menu UI experiment: the same object without the masonry niche, for the main menu's rest nook,
+## where things stand in a room instead of being set into a wall cell.
+static func draw_object(canvas: CanvasItem, kind: String, rect: Rect2, level: float, t: float) -> void:
+	var s = rect.size.x
+	var c = rect.get_center()
+	match kind:
+		"lamp": _lamp(canvas, c, s, level, t)
+		"stove": _stove(canvas, c, s, level, t)
+		"kettle": _kettle(canvas, c, s, level, t)
+		"cat": _cat(canvas, c, s, level, t)
+
 static func draw(canvas: CanvasItem, kind: String, rect: Rect2, level: float, t: float) -> void:
 	var s = rect.size.x
 	var c = rect.get_center()
